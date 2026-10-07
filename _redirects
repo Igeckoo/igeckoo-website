@@ -1,3 +1,9 @@
 # Old Laravel routes that only ever rendered the one page.
 /home / 301
 /index.php / 301
+
+# The Mexico offer used to be an in-page view at /#empresas. Anything that ever
+# linked it — a mail signature, a QR code, a WhatsApp message — should land on
+# the real page instead of the home page.
+/empresas /mexico/ 301
+/mexico-business /mexico/ 301

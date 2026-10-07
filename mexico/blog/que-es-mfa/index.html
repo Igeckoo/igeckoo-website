@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>¿Qué es MFA y por qué usarlo en tu empresa? | igeckoo</title>
+    <meta name="description" content="MFA explicado para quien decide: qué factores existen, cuáles resisten el phishing, qué deja fuera el acceso condicional y cómo desplegarlo sin frenar la operación.">
+    <link rel="canonical" href="https://igeckoo.com/mexico/blog/que-es-mfa/">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="igeckoo">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:title" content="¿Qué es MFA y por qué una empresa debe utilizarlo?">
+    <meta property="og:description" content="MFA explicado para quien decide: qué factores existen, cuáles resisten el phishing, qué deja fuera el acceso condicional y cómo desplegarlo sin frenar la operación.">
+    <meta property="og:url" content="https://igeckoo.com/mexico/blog/que-es-mfa/">
+    <meta property="og:image" content="https://igeckoo.com/img/logo_header.png">
+    <meta name="twitter:card" content="summary">
+    <meta property="article:published_time" content="2026-10-07">
+    <meta name="author" content="Equipo igeckoo">
+    <link rel="icon" type="image/png" href="../../../favicon.png">
+    <link rel="stylesheet" href="../../../fonts/fonts.css">
+    <link rel="stylesheet" href="../../../css/mx.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://igeckoo.com/"},{"@type":"ListItem","position":2,"name":"Empresas México","item":"https://igeckoo.com/mexico/"},{"@type":"ListItem","position":3,"name":"Recursos","item":"https://igeckoo.com/mexico/blog/"},{"@type":"ListItem","position":4,"name":"¿Qué es MFA y por qué una empresa debe utilizarlo?","item":"https://igeckoo.com/mexico/blog/que-es-mfa/"}]},{"@type":"BlogPosting","headline":"¿Qué es MFA y por qué una empresa debe utilizarlo?","description":"MFA explicado para quien decide: qué factores existen, cuáles resisten el phishing, qué deja fuera el acceso condicional y cómo desplegarlo sin frenar la operación.","url":"https://igeckoo.com/mexico/blog/que-es-mfa/","datePublished":"2026-10-07","dateModified":"2026-10-07","inLanguage":"es-MX","author":{"@type":"Organization","name":"Equipo igeckoo"},"publisher":{"@id":"https://igeckoo.com/#organization"},"mainEntityOfPage":"https://igeckoo.com/mexico/blog/que-es-mfa/"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿MFA molesta a los usuarios todos los días?","acceptedAnswer":{"@type":"Answer","text":"No si está bien configurado. En un equipo administrado y de confianza, la sesión se mantiene y el usuario ve el segundo factor pocas veces; la petición aparece cuando hay algo distinto: equipo nuevo, red desconocida o una operación sensible. Lo que genera rechazo es pedirlo cada hora sin criterio."}},{"@type":"Question","name":"¿Sirve de algo el MFA por SMS?","acceptedAnswer":{"@type":"Answer","text":"Sirve más que una contraseña sola, y es claramente el eslabón más débil de la lista. Úsalo como paso intermedio mientras se registra la app o la llave de seguridad, nunca para cuentas de administrador ni de finanzas."}},{"@type":"Question","name":"¿Qué hacemos con las cuentas de servicio y los equipos multifuncionales?","acceptedAnswer":{"@type":"Answer","text":"No llevan MFA interactivo: se protegen con otra combinación. Permisos mínimos, contraseña larga y rotada o una identidad administrada, restricción al rango de IP interno y, si es un escáner, usar envío autenticado moderno en lugar de abrir el protocolo heredado para todo el tenant."}},{"@type":"Question","name":"¿Con MFA ya no necesitamos cambiar contraseñas cada mes?","acceptedAnswer":{"@type":"Answer","text":"El cambio obligatorio frecuente está desaconsejado desde hace años porque empuja a los usuarios a variaciones predecibles. La recomendación actual es contraseña larga, MFA, bloqueo de contraseñas comunes y cambio inmediato cuando hay sospecha de filtración."}}]}]}</script>
+</head>
+<body>
+    <a class="mx-skip" href="#contenido">Ir al contenido</a>
+    <header class="mx-head">
+        <div class="mx-head-in">
+            <a class="mx-logo" href="../../../index.html">
+                <img src="../../../img/logo_header.png" alt="igeckoo" width="150" height="45">
+            </a>
+            <nav class="mx-nav" aria-label="Empresas México">
+            <a href="../../">Empresas México</a>
+            <a href="../../flex-support-365/">Flex Support 365</a>
+            <a href="../../ciberseguridad/">Ciberseguridad</a>
+            <a href="../../microsoft-365/">Microsoft 365</a>
+            <a href="../../respaldo-recuperacion/">Respaldo</a>
+            <a href="../../servicios-administrados-ti/">Servicios TI</a>
+            <a href="../../queretaro/">Querétaro</a>
+            <a href="../" class="on" aria-current="page">Recursos</a>
+            </nav>
+            <a class="mx-head-cta" href="mailto:contacto@igeckoo.com">Contacto</a>
+        </div>
+    </header>
+    <main id="contenido">
+        <nav class="mx-crumbs" aria-label="Ruta de navegación">
+            <ol><li><a href="../../../index.html">Inicio</a></li><li><a href="../../">Empresas México</a></li><li><a href="../">Recursos</a></li><li>¿Qué es MFA y por qué una empresa debe utilizarlo?</li></ol>
+        </nav>
+        <section class="mx-hero">
+            <h1>¿Qué es MFA y por qué una empresa debe utilizarlo?</h1>
+            <p class="mx-byline">Equipo igeckoo &middot; <time datetime="2026-10-07">2026-10-07</time></p>
+            <p class="mx-lead">MFA (autenticación multifactor) significa que para entrar a un sistema no basta con saber la contraseña: hace falta además algo que el usuario <strong>tiene</strong> —el teléfono, una llave física, un certificado en la computadora— o algo que el usuario <strong>es</strong>, como la huella o el rostro. Una empresa lo necesita por una razón muy concreta: las contraseñas se filtran, se reutilizan y se adivinan, y el atacante que compra una credencial en el mercado negro no tiene el teléfono de tu director de finanzas.</p>
+            <p class="mx-lead">Dicho de la forma más útil para quien decide: MFA es el control que convierte una contraseña robada en un intento fallido. Es también el requisito que piden casi todos los ciberseguros y la mayoría de las auditorías de clientes corporativos.</p>
+            <p class="mx-hero-row">
+                <a class="mx-btn" href="mailto:contacto@igeckoo.com">Hablar con un especialista</a>
+                <a class="mx-btn ghost" href="https://wa.me/5214424222691" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+            </p>
+        </section>
+        <article class="mx-body">
+            <h2>Los tres factores, y por qué la contraseña sola ya no alcanza</h2>
+            <p>La autenticación se apoya en tres categorías: algo que sabes (contraseña, PIN), algo que tienes (teléfono, llave de seguridad, certificado) y algo que eres (biometría). MFA exige al menos dos de <strong>categorías distintas</strong>. Una contraseña más una pregunta secreta no es MFA: las dos son conocimiento, y las dos se roban igual.</p>
+            <p>El problema de la contraseña no es su longitud, es su reutilización. Basta con que un empleado use la misma clave del correo corporativo en un servicio externo que sufre una filtración para que esa combinación aparezca en listas públicas. A partir de ahí el ataque no requiere técnica: alguien prueba la credencial en el portal de correo y entra.</p>
+            <h2>No todos los segundos factores protegen igual</h2>
+            <p>Esta es la parte que suele decidirse por comodidad y conviene decidir por riesgo. Ordenados de menos a más resistentes:</p>
+            <ol class="mx-steps">
+                <li><strong>Código por SMS o llamada.</strong> Es mejor que nada y es el más fácil de vencer: el código se puede pedir por teléfono al usuario, interceptar o conseguir con un cambio fraudulento de línea. Úsalo sólo como último recurso.</li>
+                <li><strong>Código temporal de una app (TOTP).</strong> Los seis dígitos que rotan cada 30 segundos. Resiste el robo de línea, pero el usuario se los puede teclear a un sitio falso.</li>
+                <li><strong>Notificación push con coincidencia de número.</strong> El usuario escribe en la app el número que aparece en la pantalla. Es el mínimo recomendable para una plantilla general, porque corta el ataque de fatiga: ya no basta con bombardear a alguien con avisos hasta que apruebe por error.</li>
+                <li><strong>Llaves de seguridad FIDO2 y passkeys.</strong> Son <strong>resistentes al phishing</strong>: la credencial está ligada criptográficamente al dominio real, así que un sitio clonado no puede usarla aunque el usuario coopere. Es el factor indicado para administradores, dirección y finanzas.</li>
+                <li><strong>Certificado en el dispositivo o tarjeta inteligente.</strong> Equivalente en resistencia, con más trabajo de administración. Tiene sentido donde ya existe una infraestructura de certificados.</li>
+            </ol>
+            <h2>MFA sin acceso condicional deja huecos</h2>
+            <p>Activar MFA y darlo por terminado es el error más común. El segundo factor sólo se pide donde hay una política que lo exija, y en un entorno real siempre quedan caminos que la esquivan.</p>
+            <ul class="mx-list">
+                <li><strong>Autenticación heredada.</strong> Los protocolos antiguos de correo (POP, IMAP, SMTP AUTH) no saben pedir un segundo factor: el sistema acepta la contraseña y entra. Hay que bloquearlos explícitamente.</li>
+                <li><strong>Exclusiones que nadie revisa.</strong> La cuenta del escáner, la del ERP, la del consultor externo. Cada exclusión necesita dueño, justificación y fecha de revisión.</li>
+                <li><strong>Cuentas de servicio y de aplicación.</strong> No pueden usar MFA interactivo, así que se protegen de otra forma: identidades administradas, contraseñas largas y rotadas, permisos mínimos y restricción por ubicación o por dispositivo.</li>
+                <li><strong>Dispositivos no administrados.</strong> Un usuario con MFA correcto puede estar sincronizando archivos a una computadora personal sin cifrado ni antivirus. Eso se controla con políticas de acceso condicional que exijan dispositivo inscrito y en cumplimiento.</li>
+                <li><strong>Cuentas de emergencia.</strong> Hacen falta dos cuentas de acceso de último recurso, con credenciales largas guardadas en físico y con llaves FIDO2, excluidas de las políticas que podrían dejarte fuera de tu propio tenant. Y con alerta cada vez que se usen.</li>
+            </ul>
+            <h2>Lo que MFA no resuelve</h2>
+            <p>MFA elimina la gran mayoría de los ataques de credenciales, pero no todos. Decir lo contrario genera una falsa tranquilidad que se paga caro.</p>
+            <p>El ataque vigente se llama <strong>adversary-in-the-middle</strong>: el usuario recibe un enlace, llega a una página que reproduce el portal de inicio de sesión, teclea su contraseña y su código correctamente, y el sitio intermedio captura la <strong>cookie de sesión</strong> ya autenticada. El atacante no necesita volver a pasar MFA porque reutiliza la sesión. Lo que lo detiene es un factor resistente al phishing, limitar la vida de las sesiones en los accesos sensibles, exigir dispositivo administrado y vigilar los inicios de sesión con riesgo detectado.</p>
+            <p>El otro hueco es el <strong>consentimiento fraudulento</strong>: el usuario autoriza una aplicación de terceros que pide permiso para leer su correo. El acceso resultante es legítimo a ojos del sistema y sobrevive al cambio de contraseña. Se mitiga restringiendo quién puede otorgar consentimiento y revisando periódicamente las aplicaciones autorizadas.</p>
+            <h2>Cómo desplegarlo sin frenar la operación</h2>
+            <ol class="mx-steps">
+                <li>Inventariar cuentas: usuarios activos, administradores, buzones compartidos, cuentas de servicio y accesos de proveedores. Casi siempre aparecen cuentas de gente que ya no trabaja ahí.</li>
+                <li>Medir primero. Revisar los registros de inicio de sesión para saber qué aplicaciones y protocolos se usan de verdad, antes de bloquear nada.</li>
+                <li>Publicar las políticas en modo de sólo reporte para ver a quién afectarían, y después activarlas.</li>
+                <li>Crear las cuentas de emergencia y probarlas antes de endurecer el acceso de administradores.</li>
+                <li>Empezar por los administradores y la dirección, con llave de seguridad. Son pocas personas y son el objetivo preferente.</li>
+                <li>Registrar a toda la plantilla con una ventana de inscripción acompañada: un mensaje claro, instrucciones con capturas y alguien de TI disponible esos días. El fracaso de un despliegue de MFA casi nunca es técnico, es de comunicación.</li>
+                <li>Bloquear la autenticación heredada al final, cuando ya se sabe qué dependía de ella.</li>
+                <li>Dejar monitoreo: alertas por nuevo método registrado, por intentos fallidos repetidos y por inicios de sesión imposibles.</li>
+            </ol>
+            <h2>Qué incluye Microsoft 365 para hacerlo</h2>
+            <p>Si tu empresa ya usa Microsoft 365, buena parte de esto está pagado y sin configurar. El plan <strong>Business Premium</strong> incluye Entra ID Plan 1, que es lo que habilita el acceso condicional y las políticas por riesgo de dispositivo o de ubicación; Intune, para inscribir y exigir cumplimiento en equipos y teléfonos; Defender para Office 365, para el correo que trae los enlaces; y Defender para Empresas, para la detección en los equipos. Microsoft Authenticator con coincidencia de número y las llaves FIDO2 no cuestan licencia aparte.</p>
+            <p>La diferencia entre tener Business Premium y estar protegido es la configuración: políticas de acceso condicional escritas, excepciones documentadas, cuentas de emergencia probadas y alguien revisando las alertas. igeckoo es partner certificado de Microsoft y trabaja precisamente ese tramo, el que separa la licencia comprada del control funcionando.</p>
+        </article>
+        <section class="mx-faq">
+            <h2>Preguntas frecuentes</h2>
+            <h3>¿MFA molesta a los usuarios todos los días?</h3>
+            <p>No si está bien configurado. En un equipo administrado y de confianza, la sesión se mantiene y el usuario ve el segundo factor pocas veces; la petición aparece cuando hay algo distinto: equipo nuevo, red desconocida o una operación sensible. Lo que genera rechazo es pedirlo cada hora sin criterio.</p>
+            <h3>¿Sirve de algo el MFA por SMS?</h3>
+            <p>Sirve más que una contraseña sola, y es claramente el eslabón más débil de la lista. Úsalo como paso intermedio mientras se registra la app o la llave de seguridad, nunca para cuentas de administrador ni de finanzas.</p>
+            <h3>¿Qué hacemos con las cuentas de servicio y los equipos multifuncionales?</h3>
+            <p>No llevan MFA interactivo: se protegen con otra combinación. Permisos mínimos, contraseña larga y rotada o una identidad administrada, restricción al rango de IP interno y, si es un escáner, usar envío autenticado moderno en lugar de abrir el protocolo heredado para todo el tenant.</p>
+            <h3>¿Con MFA ya no necesitamos cambiar contraseñas cada mes?</h3>
+            <p>El cambio obligatorio frecuente está desaconsejado desde hace años porque empuja a los usuarios a variaciones predecibles. La recomendación actual es contraseña larga, MFA, bloqueo de contraseñas comunes y cambio inmediato cuando hay sospecha de filtración.</p>
+        </section>
+        <section class="mx-cta">
+            <div class="mx-wrap">
+            <h2>Hablemos de tu empresa</h2>
+            <p>Cuéntanos qué necesitas y te respondemos con una propuesta concreta, sin compromiso.</p>
+            <p class="mx-cta-row">
+                <a class="mx-btn" href="mailto:contacto@igeckoo.com">Hablar con un especialista</a>
+                <a class="mx-btn ghost" href="https://wa.me/5214424222691" target="_blank" rel="noopener">WhatsApp</a>
+                <a class="mx-btn ghost" href="tel:+524424222691">+52-442-422-2691</a>
+            </p>
+            </div>
+        </section>
+        <section class="mx-related">
+            <h2>Continúa por aquí</h2>
+            <ul>
+                <li><a href="../../ciberseguridad/"><strong>Ciberseguridad para Empresas</strong><span>Protege la información, cuentas, dispositivos y sistemas críticos de tu empresa: MFA, defensa anti-ransomware, EDR, gestión de vulnerabilidades y monitoreo.</span></a></li>
+                <li><a href="../../microsoft-365/"><strong>Microsoft 365 para Empresas</strong><span>Implementación, administración y soporte de Microsoft 365 para empresas: correo con tu dominio, Teams, OneDrive y SharePoint, configurados con seguridad.</span></a></li>
+                <li><a href="../../servicios-administrados-ti/"><strong>Servicios Administrados de TI para Empresas</strong><span>Mesa de ayuda, monitoreo, parches, altas y bajas de usuarios y administración de licencias con un responsable único y costo fijo mensual.</span></a></li>
+            </ul>
+        </section>
+    </main>
+    <footer class="mx-foot">
+        <div class="mx-foot-in">
+            <div>
+                <p class="mx-foot-h">igeckoo</p>
+                <p>Partner certificado de Microsoft y Acronis. Más de 15 años
+                   protegiendo la información y la operación de empresas en México
+                   y Estados Unidos.</p>
+                <p><a href="../../../index.html">Ir al sitio principal de igeckoo</a></p>
+            </div>
+            <div>
+                <p class="mx-foot-h">Empresas México</p>
+                <ul>
+                    <li><a href="../../">Empresas México</a></li>
+                    <li><a href="../../flex-support-365/">Flex Support 365</a></li>
+                    <li><a href="../../ciberseguridad/">Ciberseguridad</a></li>
+                    <li><a href="../../microsoft-365/">Microsoft 365</a></li>
+                    <li><a href="../../respaldo-recuperacion/">Respaldo</a></li>
+                    <li><a href="../../servicios-administrados-ti/">Servicios TI</a></li>
+                    <li><a href="../../queretaro/">Querétaro</a></li>
+                    <li><a href="../">Recursos</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="mx-foot-h">Contacto</p>
+                <p>México: <a href="tel:+524424222691">+52-442-422-2691</a><br>
+                   Estados Unidos: <a href="tel:+18884057059">+1-888-405-7059</a><br>
+                   <a href="mailto:contacto@igeckoo.com">contacto@igeckoo.com</a></p>
+                <p>Parque Tecnológico, Prol. Tecnológico 801, 2do Piso, Suite 4<br>
+                   C.P. 76159, Querétaro, México.</p>
+            </div>
+        </div>
+        <p class="mx-foot-legal">igeckoo 2026 &middot; Todos los derechos reservados</p>
+    </footer>
+    <a class="wa-btn" href="https://wa.me/5214424222691" target="_blank" rel="noopener" aria-label="WhatsApp +52 1 442 422 2691">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-1.9c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.9S23.2 3 16 3zm0 23.5c-2 0-4-.6-5.7-1.6l-.4-.2-3.8 1.1 1.1-3.6-.3-.4A10.4 10.4 0 0 1 5.5 15.8C5.5 10.1 10.2 5.5 16 5.5s10.5 4.6 10.5 10.3S21.8 26.5 16 26.5zm5.8-7.7c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.6 8.6 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.6 5.8 5 2.1.9 2.9.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+        <span>WhatsApp</span></a>
+</body>
+</html>

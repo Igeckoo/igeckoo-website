@@ -1,0 +1,5 @@
+# igeckoo.com — everything is crawlable on purpose.
+User-agent: *
+Allow: /
+
+Sitemap: https://igeckoo.com/sitemap.xml

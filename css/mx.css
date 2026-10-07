@@ -1,0 +1,308 @@
+/* ===========================================================================
+   mx.css — the stylesheet for the /mexico/ pages.
+
+   These pages do NOT load app.css. That file is 160 KB of 2019 Bootstrap plus
+   the recovered site's own rules, and it carries two traps this project has
+   already been bitten by: a type selector
+   `a,input,label,p,select,span,textarea{font-size:1.3rem!important}` that pins
+   every span to 13px whatever its parent, and `.dropdown-menu` positioning
+   tuned to percentages of a navbar that does not exist here. Phase P3 of the
+   SEO plan asks for Core Web Vitals, and the fastest way to pass is to not
+   ship 160 KB of CSS and four scripts to render an article.
+
+   So the palette, the type and the shapes are repeated here on purpose, taken
+   from app.css so the pages still read as igeckoo:
+     #1a1e1c  the near-black header bar
+     #003f77  navy, headings and slabs
+     #16a7df  brand blue, the accent and the buttons
+     #0085c4  the hover tone that app.css already used
+     #f4f8fb  the pale section tint
+     #576368  body grey
+   The asymmetric corner radius (top-left + bottom-right) is the site's own
+   button and card signature; it is what makes these pages look related to the
+   home page rather than like a generic template.
+   =========================================================================== */
+
+:root {
+    --ink: #22282b;
+    --grey: #576368;
+    --navy: #003f77;
+    --blue: #16a7df;
+    --blue-dark: #0085c4;
+    --bar: #1a1e1c;
+    --tint: #f4f8fb;
+    --line: #d7e1ea;
+    --radius: 0 14px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--ink);
+    background: #fff;
+}
+
+h1, h2, h3, .mx-foot-h, .mx-btn, .mx-logo {
+    font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+}
+
+img { max-width: 100%; height: auto; }
+
+a { color: var(--blue-dark); }
+a:hover { color: var(--navy); }
+
+.mx-skip {
+    position: absolute; left: -9999px; top: 0;
+    background: #fff; color: var(--navy); padding: .75rem 1rem; z-index: 100;
+}
+.mx-skip:focus { left: 0; }
+
+/* --- header ------------------------------------------------------------- */
+
+.mx-head {
+    background: var(--bar);
+    position: sticky; top: 0; z-index: 50;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .08);
+}
+.mx-head-in {
+    max-width: 1200px; margin: 0 auto; padding: .6rem 16px;
+    display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+}
+.mx-logo { flex: 0 0 auto; display: block; line-height: 0; }
+.mx-logo img { width: 150px; height: auto; }
+
+.mx-nav {
+    display: flex; flex-wrap: wrap; gap: .25rem 1.1rem;
+    margin-right: auto; align-items: center;
+}
+.mx-nav a {
+    color: #b9c0c4;               /* the same light grey the language switch */
+    text-decoration: none;        /* uses, for contrast on the near-black bar */
+    font-size: .9375rem;
+    padding: .25rem 0;
+    border-bottom: 2px solid transparent;
+}
+.mx-nav a:hover { color: #fff; }
+.mx-nav a.on { color: #fff; border-bottom-color: var(--blue); }
+
+.mx-head-cta {
+    background: var(--blue); color: #fff; text-decoration: none;
+    padding: .45rem 1.1rem; border-radius: var(--radius);
+    font-size: .9375rem; white-space: nowrap;
+}
+.mx-head-cta:hover { background: var(--blue-dark); color: #fff; }
+
+/* --- breadcrumb --------------------------------------------------------- */
+
+.mx-crumbs { max-width: 1200px; margin: 0 auto; padding: 1rem 16px 0; }
+.mx-crumbs ol {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-wrap: wrap; gap: .4rem;
+    font-size: .875rem; color: var(--grey);
+}
+.mx-crumbs li + li::before { content: "›"; margin-right: .4rem; color: #9aa7af; }
+.mx-crumbs a { color: var(--grey); }
+
+/* --- hero --------------------------------------------------------------- */
+
+.mx-hero { max-width: 1200px; margin: 0 auto; padding: 1.25rem 16px 2.5rem; }
+.mx-hero h1 {
+    font-size: clamp(2rem, 4.6vw, 3rem);
+    line-height: 1.12;
+    font-weight: 700;
+    color: var(--navy);
+    margin: .25rem 0 1rem;
+    max-width: 24em;
+}
+.mx-lead {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    line-height: 1.55;
+    color: var(--grey);
+    max-width: 46em;
+    margin: 0 0 1rem;
+}
+.mx-byline { font-size: .875rem; color: #7c878d; margin: 0 0 1rem; }
+
+.mx-hero-row, .mx-cta-row {
+    display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.5rem 0 0;
+}
+
+.mx-btn {
+    display: inline-block;
+    background: var(--blue); color: #fff; text-decoration: none;
+    font-weight: 600; font-size: 1.0625rem;
+    padding: .8rem 1.6rem;
+    border-radius: 14px 0;     /* the site's own CTA shape, mirrored */
+    border: 2px solid var(--blue);
+}
+.mx-btn:hover { background: var(--blue-dark); border-color: var(--blue-dark); color: #fff; }
+.mx-btn.ghost { background: transparent; color: var(--navy); border-color: var(--line); }
+.mx-btn.ghost:hover { background: var(--tint); color: var(--navy); border-color: var(--blue); }
+
+/* --- body --------------------------------------------------------------- */
+
+.mx-body { max-width: 1200px; margin: 0 auto; padding: 0 16px 1rem; }
+.mx-body h2 {
+    font-size: clamp(1.5rem, 2.8vw, 2.125rem);
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 2.75rem 0 .75rem;
+    max-width: 30em;
+}
+.mx-body h2::after {
+    content: ""; display: block; width: 64px; height: 4px;
+    background: var(--blue); margin-top: .75rem;
+}
+.mx-body h3 {
+    font-size: 1.25rem; color: var(--navy);
+    margin: 1.75rem 0 .5rem; max-width: 34em;
+}
+.mx-body p, .mx-faq p { max-width: 46em; }
+.mx-sub { font-style: italic; color: var(--grey); max-width: 46em; }
+
+.mx-list, .mx-steps { max-width: 46em; padding-left: 0; }
+.mx-list { list-style: none; }
+.mx-list li { position: relative; padding-left: 1.6rem; margin-bottom: .6rem; }
+.mx-list li::before {
+    content: ""; position: absolute; left: 0; top: .65em;
+    width: .55rem; height: .55rem; background: var(--blue);
+    border-radius: 2px 0;
+}
+.mx-steps { list-style: decimal; padding-left: 1.4rem; }
+.mx-steps li { margin-bottom: .6rem; }
+
+/* cards: the three-box strip the home page uses, in one responsive grid */
+.mx-cards {
+    display: grid; gap: 1rem; margin: 1.5rem 0;
+    /* Three columns at most: with auto-fit alone a five-card section rendered
+       4 + 1, and the orphan read as a mistake rather than as a fifth item. */
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    max-width: 1200px;
+}
+@media (min-width: 1100px) {
+    .mx-cards { grid-template-columns: repeat(3, 1fr); }
+}
+.mx-card {
+    background: var(--tint); border: 1px solid var(--line);
+    border-radius: 0 20px; padding: 1.25rem 1.4rem;
+}
+.mx-card h3 { margin: 0 0 .4rem; font-size: 1.0625rem; }
+.mx-card p { margin: 0; font-size: .9375rem; color: var(--grey); }
+
+/* comparison matrices. Ticks and dashes only — the no-prices rule is
+   enforced in seo_pages.validate(), not by hoping. */
+.mx-table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+.mx-table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: .9375rem; }
+.mx-table caption { text-align: left; color: var(--grey); padding-bottom: .5rem; font-size: .875rem; }
+.mx-table th, .mx-table td {
+    border: 1px solid var(--line); padding: .6rem .75rem; text-align: center;
+}
+.mx-table thead th { background: var(--navy); color: #fff; font-weight: 600; }
+.mx-table tbody th {
+    background: var(--tint); color: var(--ink);
+    text-align: left; font-weight: 600;
+}
+
+.mx-figure { margin: 1.75rem 0; }
+.mx-figure img { border: 1px solid var(--line); border-radius: 0 20px; }
+.mx-figure figcaption { font-size: .875rem; color: var(--grey); margin-top: .5rem; }
+
+/* --- faq ---------------------------------------------------------------- */
+
+.mx-faq {
+    max-width: 1200px; margin: 2.5rem auto 0; padding: 2rem 16px;
+    background: var(--tint); border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+.mx-faq h2 { font-size: clamp(1.5rem, 2.8vw, 2rem); color: var(--navy); margin: 0 0 1rem; }
+.mx-faq h3 { font-size: 1.0625rem; color: var(--navy); margin: 1.5rem 0 .35rem; }
+
+/* --- call to action ----------------------------------------------------- */
+
+.mx-cta {
+    background: var(--navy); color: #fff;
+    margin: 0; padding: 3rem 16px;
+}
+/* One wrapper, so the heading and the copy share a left edge. Without it the
+   heading was constrained to 1200px with auto margins and the paragraph to 46em
+   with the same auto margins — which centred the paragraph under a left-aligned
+   heading. Visible immediately in a screenshot, invisible in the markup. */
+.mx-cta .mx-wrap { max-width: 1200px; margin: 0 auto; }
+.mx-cta h2 { font-size: clamp(1.75rem, 3.4vw, 2.5rem); margin-top: 0; color: #fff; }
+.mx-cta p { color: #d5e2ee; max-width: 46em; margin-left: 0; margin-right: 0; }
+.mx-cta .mx-btn.ghost { color: #fff; border-color: rgba(255, 255, 255, .5); }
+.mx-cta .mx-btn.ghost:hover { background: rgba(255, 255, 255, .12); color: #fff; }
+
+/* --- related ------------------------------------------------------------ */
+
+.mx-related { max-width: 1200px; margin: 0 auto; padding: 2.5rem 16px 3rem; }
+.mx-related h2 { font-size: 1.5rem; color: var(--navy); margin: 0 0 1rem; }
+.mx-related ul {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+}
+.mx-related a, .mx-art a {
+    display: block; text-decoration: none; color: var(--navy);
+    border: 1px solid var(--line); border-radius: 0 20px;
+    padding: 1.1rem 1.25rem; height: 100%;
+    background: #fff;
+}
+.mx-related a:hover, .mx-art a:hover { border-color: var(--blue); background: var(--tint); }
+.mx-related strong, .mx-art strong { display: block; margin-bottom: .35rem; font-size: 1.0625rem; }
+.mx-related span, .mx-art span { display: block; color: var(--grey); font-size: .9375rem; }
+
+/* the blog index reuses the same card for each article */
+.mx-body ul:has(.mx-art) { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); list-style: none; }
+.mx-art { padding-left: 0 !important; }
+.mx-art::before { display: none !important; }
+
+/* --- footer ------------------------------------------------------------- */
+
+.mx-foot { background: var(--bar); color: #c3cbd0; margin-top: 0; padding: 3rem 16px 1.5rem; }
+.mx-foot-in {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+.mx-foot p { font-size: .9375rem; line-height: 1.6; }
+.mx-foot-h { color: #fff; font-weight: 600; margin: 0 0 .5rem; }
+.mx-foot a { color: #b9c0c4; }
+.mx-foot a:hover { color: #fff; }
+.mx-foot ul { list-style: none; margin: 0; padding: 0; font-size: .9375rem; }
+.mx-foot li { margin-bottom: .35rem; }
+.mx-foot-legal {
+    max-width: 1200px; margin: 2rem auto 0; padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, .12);
+    font-size: .8125rem; color: #8b969c;
+}
+
+/* --- floating WhatsApp, same component as the home page ----------------- */
+
+.wa-btn {
+    position: fixed; right: 18px; bottom: 18px; z-index: 60;
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: #25d366; color: #fff; text-decoration: none;
+    padding: .6rem .9rem; border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+    font-size: .9375rem; font-weight: 600;
+}
+.wa-btn:hover { background: #1ebe5b; color: #fff; }
+.wa-btn svg { width: 22px; height: 22px; flex: 0 0 auto; }
+
+@media (max-width: 600px) {
+    .wa-btn span { display: none; }
+    .wa-btn { padding: .7rem; }
+    .mx-head-cta { display: none; }   /* the hero and the CTA block cover it */
+    .mx-nav { gap: .25rem .8rem; font-size: .875rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}

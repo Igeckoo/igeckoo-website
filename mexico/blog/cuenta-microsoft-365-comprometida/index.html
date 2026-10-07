@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>¿Qué hacer si roban una cuenta de Microsoft 365? | igeckoo</title>
+    <meta name="description" content="Los pasos para contener una cuenta de Microsoft 365 comprometida: revocar sesiones, buscar reglas y aplicaciones que dejó el atacante y medir el alcance real.">
+    <link rel="canonical" href="https://igeckoo.com/mexico/blog/cuenta-microsoft-365-comprometida/">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="igeckoo">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:title" content="¿Qué hacer si roban una cuenta de Microsoft 365?">
+    <meta property="og:description" content="Los pasos para contener una cuenta de Microsoft 365 comprometida: revocar sesiones, buscar reglas y aplicaciones que dejó el atacante y medir el alcance real.">
+    <meta property="og:url" content="https://igeckoo.com/mexico/blog/cuenta-microsoft-365-comprometida/">
+    <meta property="og:image" content="https://igeckoo.com/img/logo_header.png">
+    <meta name="twitter:card" content="summary">
+    <meta property="article:published_time" content="2026-10-07">
+    <meta name="author" content="Equipo igeckoo">
+    <link rel="icon" type="image/png" href="../../../favicon.png">
+    <link rel="stylesheet" href="../../../fonts/fonts.css">
+    <link rel="stylesheet" href="../../../css/mx.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://igeckoo.com/"},{"@type":"ListItem","position":2,"name":"Empresas México","item":"https://igeckoo.com/mexico/"},{"@type":"ListItem","position":3,"name":"Recursos","item":"https://igeckoo.com/mexico/blog/"},{"@type":"ListItem","position":4,"name":"¿Qué hacer si roban una cuenta de Microsoft 365?","item":"https://igeckoo.com/mexico/blog/cuenta-microsoft-365-comprometida/"}]},{"@type":"BlogPosting","headline":"¿Qué hacer si roban una cuenta de Microsoft 365?","description":"Los pasos para contener una cuenta de Microsoft 365 comprometida: revocar sesiones, buscar reglas y aplicaciones que dejó el atacante y medir el alcance real.","url":"https://igeckoo.com/mexico/blog/cuenta-microsoft-365-comprometida/","datePublished":"2026-10-07","dateModified":"2026-10-07","inLanguage":"es-MX","author":{"@type":"Organization","name":"Equipo igeckoo"},"publisher":{"@id":"https://igeckoo.com/#organization"},"mainEntityOfPage":"https://igeckoo.com/mexico/blog/cuenta-microsoft-365-comprometida/"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Basta con cambiar la contraseña?","acceptedAnswer":{"@type":"Answer","text":"No. El cambio de contraseña no invalida por sí solo las sesiones ya emitidas, así que un atacante con una cookie de sesión robada puede seguir dentro. Hay que revocar las sesiones y volver a registrar los métodos de MFA, porque pudo haber añadido el suyo."}},{"@type":"Question","name":"¿Cómo sé que la cuenta está comprometida y no es un falso positivo?","acceptedAnswer":{"@type":"Answer","text":"Las señales más confiables son reglas de bandeja de entrada que el usuario no creó, correo enviado que no aparece en elementos enviados, inicios de sesión desde países donde nadie trabaja, un método de MFA nuevo registrado y contactos que reportan mensajes extraños desde esa dirección."}},{"@type":"Question","name":"¿Hay que borrar el buzón o rehacer la cuenta?","acceptedAnswer":{"@type":"Answer","text":"Normalmente no. Una cuenta se puede recuperar limpiando la persistencia: reglas, reenvíos, delegaciones, consentimientos y métodos de autenticación. Rehacerla desde cero sólo se justifica si no se logra determinar el alcance o si había privilegios administrativos con actividad sin explicar."}},{"@type":"Question","name":"¿El equipo del usuario también está infectado?","acceptedAnswer":{"@type":"Answer","text":"Puede no estarlo: en el robo de sesión por página falsa no hace falta malware. Aun así, conviene revisar el equipo con la herramienta de detección y revisar si hubo descarga de archivos, porque si sí hay malware el problema ya no es sólo la cuenta."}}]}]}</script>
+</head>
+<body>
+    <a class="mx-skip" href="#contenido">Ir al contenido</a>
+    <header class="mx-head">
+        <div class="mx-head-in">
+            <a class="mx-logo" href="../../../index.html">
+                <img src="../../../img/logo_header.png" alt="igeckoo" width="150" height="45">
+            </a>
+            <nav class="mx-nav" aria-label="Empresas México">
+            <a href="../../">Empresas México</a>
+            <a href="../../flex-support-365/">Flex Support 365</a>
+            <a href="../../ciberseguridad/">Ciberseguridad</a>
+            <a href="../../microsoft-365/">Microsoft 365</a>
+            <a href="../../respaldo-recuperacion/">Respaldo</a>
+            <a href="../../servicios-administrados-ti/">Servicios TI</a>
+            <a href="../../queretaro/">Querétaro</a>
+            <a href="../" class="on" aria-current="page">Recursos</a>
+            </nav>
+            <a class="mx-head-cta" href="mailto:contacto@igeckoo.com">Contacto</a>
+        </div>
+    </header>
+    <main id="contenido">
+        <nav class="mx-crumbs" aria-label="Ruta de navegación">
+            <ol><li><a href="../../../index.html">Inicio</a></li><li><a href="../../">Empresas México</a></li><li><a href="../">Recursos</a></li><li>¿Qué hacer si roban una cuenta de Microsoft 365?</li></ol>
+        </nav>
+        <section class="mx-hero">
+            <h1>¿Qué hacer si roban una cuenta de Microsoft 365?</h1>
+            <p class="mx-byline">Equipo igeckoo &middot; <time datetime="2026-10-07">2026-10-07</time></p>
+            <p class="mx-lead">Lo primero no es cambiar la contraseña: es <strong>revocar las sesiones activas</strong>. Si sólo restableces la contraseña, el atacante que ya tiene una cookie de sesión válida sigue dentro, porque su token no caduca por el cambio. El orden correcto es revocar sesiones, restablecer la contraseña, volver a registrar los métodos de MFA y sólo entonces investigar.</p>
+            <p class="mx-lead">Lo segundo es asumir que el atacante dejó algo instalado. En casi todos los compromisos de Microsoft 365 hay una regla de reenvío de correo, una aplicación con consentimiento o un método de MFA añadido que devuelve el acceso días después, cuando todos creen que el incidente está cerrado.</p>
+            <p class="mx-hero-row">
+                <a class="mx-btn" href="mailto:contacto@igeckoo.com">Hablar con un especialista</a>
+                <a class="mx-btn ghost" href="https://wa.me/5214424222691" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+            </p>
+        </section>
+        <article class="mx-body">
+            <h2>Contener: los primeros quince minutos</h2>
+            <p>Estos pasos se ejecutan desde el centro de administración de Microsoft Entra o con PowerShell, y conviene tenerlos escritos antes de necesitarlos. Si la cuenta comprometida es de un administrador, hazlos desde otra cuenta administrativa y con un equipo distinto del afectado.</p>
+            <ol class="mx-steps">
+                <li><strong>Revocar todas las sesiones</strong> de la cuenta (la opción de cerrar todas las sesiones en el perfil del usuario, o `Revoke-MgUserSignInSession` desde Microsoft Graph PowerShell). Esto invalida los tokens de actualización y obliga a volver a autenticarse.</li>
+                <li><strong>Restablecer la contraseña</strong> por una nueva, larga y única, y entregarla por un canal distinto del correo comprometido.</li>
+                <li><strong>Eliminar y volver a registrar los métodos de autenticación.</strong> El atacante pudo registrar su propio teléfono o su propia app, lo que le permitiría pasar MFA indefinidamente.</li>
+                <li>Si la cuenta tiene privilegios o hay evidencia de movimiento, <strong>bloquear el inicio de sesión</strong> mientras se investiga, en lugar de devolverla a producción de inmediato.</li>
+                <li>Quitar temporalmente los roles administrativos asignados a esa cuenta y revisar si se asignaron roles nuevos a otras cuentas.</li>
+                <li>Avisar al usuario por teléfono, no por correo, y pedirle que no borre nada: lo que parezca basura puede ser evidencia.</li>
+            </ol>
+            <h2>Buscar lo que el atacante dejó atrás</h2>
+            <p>La persistencia es la parte del trabajo que se omite con más frecuencia, y es la que hace que el mismo incidente vuelva a aparecer en dos semanas. Revisa, uno por uno:</p>
+            <ul class="mx-list">
+                <li><strong>Reglas de bandeja de entrada.</strong> Las típicas mueven a una carpeta poco visible todo lo que contenga palabras como factura, transferencia o contraseña, para que el usuario no vea las respuestas. Revisa también reglas con nombre vacío o de un solo carácter.</li>
+                <li><strong>Reenvío de correo</strong>, tanto el configurado por el usuario como el que se define a nivel de buzón, y las reglas de transporte de toda la organización: un atacante con permisos puede crear una que copie correo saliente.</li>
+                <li><strong>Aplicaciones con consentimiento.</strong> Una app de terceros autorizada a leer correo y archivos mantiene el acceso aunque cambies la contraseña y el MFA. Revisa las aplicaciones empresariales y los consentimientos del usuario, y revoca lo que no reconozcas.</li>
+                <li><strong>Delegaciones y permisos de buzón:</strong> acceso delegado, Enviar como, Enviar en nombre de, y suscripciones a carpetas compartidas.</li>
+                <li><strong>Protocolos y dispositivos:</strong> clientes antiguos conectados por IMAP o POP, aplicaciones con contraseñas específicas de aplicación y dispositivos móviles inscritos que el usuario no reconoce.</li>
+                <li><strong>Cambios de configuración:</strong> nuevos usuarios creados, cambios en políticas de acceso condicional, exclusiones añadidas y modificaciones en la configuración de auditoría.</li>
+            </ul>
+            <h2>Medir el alcance real</h2>
+            <p>Una cuenta comprometida no es un problema de una cuenta: es un problema de todo lo que esa cuenta podía ver. La pregunta que hay que poder responder por escrito es qué información se expuso y si hubo movimiento hacia otras cuentas.</p>
+            <p>Las fuentes para responderla están en el propio entorno, siempre que la auditoría estuviera activa antes del incidente, que es otra razón para revisar su configuración hoy y no después.</p>
+            <ul class="mx-list">
+                <li><strong>Registros de inicio de sesión</strong> de Entra ID: direcciones IP, países, aplicaciones usadas, si el inicio de sesión pasó MFA y desde qué dispositivo.</li>
+                <li><strong>Registro de auditoría unificado</strong> en el portal de cumplimiento: creación de reglas, consentimientos, accesos a archivos y envío de correo.</li>
+                <li><strong>Actividad del buzón</strong>, incluido el evento que registra el acceso a elementos de correo —disponible en los planes con auditoría avanzada—, que es lo que permite decir qué se leyó y no sólo que alguien entró.</li>
+                <li><strong>Descargas y accesos en SharePoint y OneDrive</strong>: un volumen anómalo de descargas indica exfiltración, no curiosidad.</li>
+                <li><strong>Correo enviado desde la cuenta</strong>: busca mensajes de phishing enviados a contactos internos y externos, porque esa es la vía normal de propagación y obliga a avisar a terceros.</li>
+                <li><strong>Otras cuentas</strong> que recibieron correo de la comprometida o que iniciaron sesión desde las mismas direcciones IP.</li>
+            </ul>
+            <h2>Avisar y documentar</h2>
+            <p>Dos tareas que no son técnicas y que conviene hacer en paralelo a la contención. La primera es avisar: a los contactos internos y externos que recibieron correo fraudulento desde la cuenta, para que no actúen sobre instrucciones falsas —especialmente si el atacante intervino en una conversación de pagos o de datos bancarios—, y a la dirección, con lenguaje claro sobre lo que se sabe y lo que todavía no.</p>
+            <p>La segunda es documentar: una línea de tiempo con fechas y horas, qué se detectó, qué se hizo, qué información estuvo accesible y qué evidencia se conserva. Si en el buzón había datos personales de clientes, empleados o candidatos, hay que evaluar las obligaciones de notificación que apliquen con la asesoría legal de la empresa; esa evaluación necesita la línea de tiempo. Y si existe un ciberseguro, revisa los plazos de aviso: suelen ser cortos.</p>
+            <h2>Cerrar el hueco para que no se repita</h2>
+            <p>Un compromiso de cuenta casi nunca es mala suerte: es una configuración que lo permitía. Antes de dar por cerrado el incidente, cierra la causa.</p>
+            <ul class="mx-list">
+                <li>MFA en todas las cuentas y, para administradores, dirección y finanzas, un factor <strong>resistente al phishing</strong> (llaves FIDO2 o passkeys). La mayoría de estos robos ocurre con MFA activo, mediante páginas falsas que capturan la sesión.</li>
+                <li>Bloquear la autenticación heredada con acceso condicional y exigir dispositivo administrado para el acceso a datos.</li>
+                <li>Restringir que los usuarios puedan otorgar consentimiento a aplicaciones de terceros, y revisar las autorizadas de forma periódica.</li>
+                <li>Activar las alertas que avisan de reglas de reenvío nuevas, de envío masivo inusual y de inicios de sesión con riesgo detectado. Que lleguen a un buzón que alguien lee.</li>
+                <li>Verificar que la auditoría está activa con la retención adecuada: sin registros no hay investigación posible.</li>
+                <li>Capacitación de phishing centrada en lo que realmente ocurre: páginas de inicio de sesión clonadas y peticiones urgentes de pago.</li>
+            </ul>
+            <h2>La versión corta para pegar en la pared</h2>
+            <ol class="mx-steps">
+                <li>Revocar sesiones. Restablecer contraseña. Rehacer el registro de MFA.</li>
+                <li>Buscar reglas de bandeja, reenvíos y aplicaciones con consentimiento, y eliminar lo que no se reconozca.</li>
+                <li>Revisar los registros de inicio de sesión y de auditoría para determinar el alcance.</li>
+                <li>Avisar a quienes recibieron correo desde la cuenta y documentar la línea de tiempo.</li>
+                <li>Cerrar la causa: MFA resistente al phishing, bloqueo de autenticación heredada, control de consentimientos y alertas que alguien lea.</li>
+            </ol>
+        </article>
+        <section class="mx-faq">
+            <h2>Preguntas frecuentes</h2>
+            <h3>¿Basta con cambiar la contraseña?</h3>
+            <p>No. El cambio de contraseña no invalida por sí solo las sesiones ya emitidas, así que un atacante con una cookie de sesión robada puede seguir dentro. Hay que revocar las sesiones y volver a registrar los métodos de MFA, porque pudo haber añadido el suyo.</p>
+            <h3>¿Cómo sé que la cuenta está comprometida y no es un falso positivo?</h3>
+            <p>Las señales más confiables son reglas de bandeja de entrada que el usuario no creó, correo enviado que no aparece en elementos enviados, inicios de sesión desde países donde nadie trabaja, un método de MFA nuevo registrado y contactos que reportan mensajes extraños desde esa dirección.</p>
+            <h3>¿Hay que borrar el buzón o rehacer la cuenta?</h3>
+            <p>Normalmente no. Una cuenta se puede recuperar limpiando la persistencia: reglas, reenvíos, delegaciones, consentimientos y métodos de autenticación. Rehacerla desde cero sólo se justifica si no se logra determinar el alcance o si había privilegios administrativos con actividad sin explicar.</p>
+            <h3>¿El equipo del usuario también está infectado?</h3>
+            <p>Puede no estarlo: en el robo de sesión por página falsa no hace falta malware. Aun así, conviene revisar el equipo con la herramienta de detección y revisar si hubo descarga de archivos, porque si sí hay malware el problema ya no es sólo la cuenta.</p>
+        </section>
+        <section class="mx-cta">
+            <div class="mx-wrap">
+            <h2>¿Quién ejecuta esto en la primera hora?</h2>
+            <p>Si tu empresa no puede responder esa pregunta con un nombre y un teléfono, ése es el hallazgo más importante de este artículo. igeckoo es partner certificado de Microsoft, tiene más de 15 años administrando infraestructura de empresas en México y opera entornos de Microsoft 365 incluyendo la contención de este tipo de incidentes.</p>
+            <p class="mx-cta-row">
+                <a class="mx-btn" href="mailto:contacto@igeckoo.com">Hablar con un especialista</a>
+                <a class="mx-btn ghost" href="https://wa.me/5214424222691" target="_blank" rel="noopener">WhatsApp</a>
+                <a class="mx-btn ghost" href="tel:+524424222691">+52-442-422-2691</a>
+            </p>
+            </div>
+        </section>
+        <section class="mx-related">
+            <h2>Continúa por aquí</h2>
+            <ul>
+                <li><a href="../../microsoft-365/"><strong>Microsoft 365 para Empresas</strong><span>Implementación, administración y soporte de Microsoft 365 para empresas: correo con tu dominio, Teams, OneDrive y SharePoint, configurados con seguridad.</span></a></li>
+                <li><a href="../../ciberseguridad/"><strong>Ciberseguridad para Empresas</strong><span>Protege la información, cuentas, dispositivos y sistemas críticos de tu empresa: MFA, defensa anti-ransomware, EDR, gestión de vulnerabilidades y monitoreo.</span></a></li>
+                <li><a href="../../flex-support-365/"><strong>Flex Support 365: productividad, protección y soporte en un solo servicio</strong><span>Flex Support 365 integra productividad, ciberseguridad, respaldo y soporte en un solo servicio con costo fijo mensual, sin equipo de TI especializado.</span></a></li>
+            </ul>
+        </section>
+    </main>
+    <footer class="mx-foot">
+        <div class="mx-foot-in">
+            <div>
+                <p class="mx-foot-h">igeckoo</p>
+                <p>Partner certificado de Microsoft y Acronis. Más de 15 años
+                   protegiendo la información y la operación de empresas en México
+                   y Estados Unidos.</p>
+                <p><a href="../../../index.html">Ir al sitio principal de igeckoo</a></p>
+            </div>
+            <div>
+                <p class="mx-foot-h">Empresas México</p>
+                <ul>
+                    <li><a href="../../">Empresas México</a></li>
+                    <li><a href="../../flex-support-365/">Flex Support 365</a></li>
+                    <li><a href="../../ciberseguridad/">Ciberseguridad</a></li>
+                    <li><a href="../../microsoft-365/">Microsoft 365</a></li>
+                    <li><a href="../../respaldo-recuperacion/">Respaldo</a></li>
+                    <li><a href="../../servicios-administrados-ti/">Servicios TI</a></li>
+                    <li><a href="../../queretaro/">Querétaro</a></li>
+                    <li><a href="../">Recursos</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="mx-foot-h">Contacto</p>
+                <p>México: <a href="tel:+524424222691">+52-442-422-2691</a><br>
+                   Estados Unidos: <a href="tel:+18884057059">+1-888-405-7059</a><br>
+                   <a href="mailto:contacto@igeckoo.com">contacto@igeckoo.com</a></p>
+                <p>Parque Tecnológico, Prol. Tecnológico 801, 2do Piso, Suite 4<br>
+                   C.P. 76159, Querétaro, México.</p>
+            </div>
+        </div>
+        <p class="mx-foot-legal">igeckoo 2026 &middot; Todos los derechos reservados</p>
+    </footer>
+    <a class="wa-btn" href="https://wa.me/5214424222691" target="_blank" rel="noopener" aria-label="WhatsApp +52 1 442 422 2691">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-1.9c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.9S23.2 3 16 3zm0 23.5c-2 0-4-.6-5.7-1.6l-.4-.2-3.8 1.1 1.1-3.6-.3-.4A10.4 10.4 0 0 1 5.5 15.8C5.5 10.1 10.2 5.5 16 5.5s10.5 4.6 10.5 10.3S21.8 26.5 16 26.5zm5.8-7.7c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.6 8.6 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.6 5.8 5 2.1.9 2.9.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+        <span>WhatsApp</span></a>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Backup y continuidad operativa: cuál es la diferencia | igeckoo</title>
+    <meta name="description" content="El respaldo garantiza que la información existe; la continuidad operativa, que la empresa vuelve a trabajar. Qué separa a una cosa de la otra y qué falta añadir.">
+    <link rel="canonical" href="https://igeckoo.com/mexico/blog/backup-vs-continuidad-operativa/">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="igeckoo">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:title" content="Backup y continuidad operativa: cuál es la diferencia">
+    <meta property="og:description" content="El respaldo garantiza que la información existe; la continuidad operativa, que la empresa vuelve a trabajar. Qué separa a una cosa de la otra y qué falta añadir.">
+    <meta property="og:url" content="https://igeckoo.com/mexico/blog/backup-vs-continuidad-operativa/">
+    <meta property="og:image" content="https://igeckoo.com/img/logo_header.png">
+    <meta name="twitter:card" content="summary">
+    <meta property="article:published_time" content="2026-10-07">
+    <meta name="author" content="Equipo igeckoo">
+    <link rel="icon" type="image/png" href="../../../favicon.png">
+    <link rel="stylesheet" href="../../../fonts/fonts.css">
+    <link rel="stylesheet" href="../../../css/mx.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://igeckoo.com/"},{"@type":"ListItem","position":2,"name":"Empresas México","item":"https://igeckoo.com/mexico/"},{"@type":"ListItem","position":3,"name":"Recursos","item":"https://igeckoo.com/mexico/blog/"},{"@type":"ListItem","position":4,"name":"Backup y continuidad operativa: cuál es la diferencia","item":"https://igeckoo.com/mexico/blog/backup-vs-continuidad-operativa/"}]},{"@type":"BlogPosting","headline":"Backup y continuidad operativa: cuál es la diferencia","description":"El respaldo garantiza que la información existe; la continuidad operativa, que la empresa vuelve a trabajar. Qué separa a una cosa de la otra y qué falta añadir.","url":"https://igeckoo.com/mexico/blog/backup-vs-continuidad-operativa/","datePublished":"2026-10-07","dateModified":"2026-10-07","inLanguage":"es-MX","author":{"@type":"Organization","name":"Equipo igeckoo"},"publisher":{"@id":"https://igeckoo.com/#organization"},"mainEntityOfPage":"https://igeckoo.com/mexico/blog/backup-vs-continuidad-operativa/"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Tener respaldo en la nube es lo mismo que tener continuidad?","acceptedAnswer":{"@type":"Answer","text":"No. La nube resuelve que la copia esté fuera del sitio, que es una parte del problema. La continuidad exige además saber dónde se restaura, en qué orden, con qué accesos, en cuánto tiempo y quién lo ejecuta."}},{"@type":"Question","name":"¿Qué es un RTO razonable para una empresa mediana?","acceptedAnswer":{"@type":"Answer","text":"Depende del sistema, no de la empresa. Correo e identidad suelen necesitar horas; el ERP, entre medio día y un día; los equipos de usuario pueden recuperarse en oleadas durante varios días. Lo importante es que cada cifra esté acordada con la dirección y probada."}},{"@type":"Question","name":"¿Hace falta un plan formal de continuidad si somos pocos?","acceptedAnswer":{"@type":"Answer","text":"Hace falta un documento, no una metodología completa. Con la lista de sistemas, su orden de recuperación, dónde está cada copia, quién restaura y cómo se accede a las credenciales de emergencia, ya se cubre la mayor parte del riesgo."}}]}]}</script>
+</head>
+<body>
+    <a class="mx-skip" href="#contenido">Ir al contenido</a>
+    <header class="mx-head">
+        <div class="mx-head-in">
+            <a class="mx-logo" href="../../../index.html">
+                <img src="../../../img/logo_header.png" alt="igeckoo" width="150" height="45">
+            </a>
+            <nav class="mx-nav" aria-label="Empresas México">
+            <a href="../../">Empresas México</a>
+            <a href="../../flex-support-365/">Flex Support 365</a>
+            <a href="../../ciberseguridad/">Ciberseguridad</a>
+            <a href="../../microsoft-365/">Microsoft 365</a>
+            <a href="../../respaldo-recuperacion/">Respaldo</a>
+            <a href="../../servicios-administrados-ti/">Servicios TI</a>
+            <a href="../../queretaro/">Querétaro</a>
+            <a href="../" class="on" aria-current="page">Recursos</a>
+            </nav>
+            <a class="mx-head-cta" href="mailto:contacto@igeckoo.com">Contacto</a>
+        </div>
+    </header>
+    <main id="contenido">
+        <nav class="mx-crumbs" aria-label="Ruta de navegación">
+            <ol><li><a href="../../../index.html">Inicio</a></li><li><a href="../../">Empresas México</a></li><li><a href="../">Recursos</a></li><li>Backup y continuidad operativa: cuál es la diferencia</li></ol>
+        </nav>
+        <section class="mx-hero">
+            <h1>Backup y continuidad operativa: cuál es la diferencia</h1>
+            <p class="mx-byline">Equipo igeckoo &middot; <time datetime="2026-10-07">2026-10-07</time></p>
+            <p class="mx-lead">Un respaldo responde a una pregunta: ¿la información todavía existe en algún lugar? La continuidad operativa responde a otra: ¿cuánto tarda la empresa en volver a facturar, atender y producir? Tener lo primero no implica lo segundo. Es perfectamente posible tener copias íntegras de todo y aun así estar tres días detenido, porque nadie definió en qué orden se levantan los sistemas, sobre qué equipo, con qué accesos y quién lo hace.</p>
+            <p class="mx-lead">La diferencia práctica es ésta: el respaldo es un producto, la continuidad es una capacidad. El respaldo se compra y se configura una vez; la continuidad se diseña, se documenta y se ensaya, y se degrada en cuanto cambia la infraestructura y nadie actualiza el plan.</p>
+            <p class="mx-hero-row">
+                <a class="mx-btn" href="mailto:contacto@igeckoo.com">Hablar con un especialista</a>
+                <a class="mx-btn ghost" href="https://wa.me/5214424222691" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+            </p>
+        </section>
+        <article class="mx-body">
+            <h2>Las dos cifras que separan una cosa de la otra</h2>
+            <p>El RPO, punto de recuperación objetivo, mide cuánta información acepta perder la empresa, expresada en tiempo: un RPO de cuatro horas significa que como máximo se rehacen cuatro horas de trabajo. El RPO depende sobre todo de la frecuencia del respaldo, y por eso es la cifra que el respaldo sí resuelve.</p>
+            <p>El RTO, tiempo objetivo de recuperación, mide cuánto puede estar detenida la empresa antes de que el paro cause un daño que no se recupera: pedidos que se van, entregas incumplidas, nómina que no sale. El RTO no depende del respaldo, sino de todo lo que rodea a la restauración: el hardware o la nube donde se va a levantar el sistema, el ancho de banda para bajar la copia, los accesos, la documentación y la disponibilidad de la gente que sabe hacerlo.</p>
+            <p>Dicho corto: el RPO es información perdida y el RTO es tiempo detenido. Una empresa con respaldo tiene control sobre el primero. Una empresa con continuidad operativa tiene control sobre los dos, y los dos están por escrito con un responsable al lado.</p>
+            <h2>Lo que un respaldo no resuelve por sí solo</h2>
+            <ul class="mx-list">
+                <li><strong>Dónde se restaura.</strong> Si el servidor se perdió por hardware, incendio o cifrado, hay que tener un destino: equipo de reemplazo, hipervisor con capacidad libre o una máquina en la nube lista para recibir la imagen.</li>
+                <li><strong>Con qué accesos.</strong> Las contraseñas de administración, el acceso a la consola de respaldo y los segundos factores suelen vivir dentro de los sistemas que acabaron de caer. Si están ahí, no están disponibles cuando hacen falta.</li>
+                <li><strong>En qué orden.</strong> Levantar la aplicación antes de la autenticación o antes de la base de datos no funciona, y descubrirlo durante el incidente cuesta horas.</li>
+                <li><strong>Cuánto tarda la copia en llegar.</strong> Bajar la información de la nube tiene un tiempo real medible. Si nadie lo midió, el RTO es una suposición.</li>
+                <li><strong>Quién lo hace.</strong> Una sola persona que sepa restaurar es un punto único de falla tan serio como un solo disco.</li>
+                <li><strong>Qué hace la operación mientras tanto.</strong> Cómo se toman pedidos, cómo se avisa a los clientes y qué se registra en papel para recapturarlo después. Es parte del plan, no improvisación.</li>
+            </ul>
+            <h2>El orden de recuperación es parte del plan</h2>
+            <p>En casi cualquier empresa el orden es el mismo, porque cada capa depende de la anterior. Escribirlo antes vale más que cualquier herramienta:</p>
+            <ol class="mx-steps">
+                <li><strong>Identidad y accesos.</strong> Directorio, cuentas, grupos, permisos y segundo factor. Sin esto, nadie puede entrar a nada de lo que se restaure después.</li>
+                <li><strong>Comunicación.</strong> Correo y mensajería. Es lo que permite coordinar la propia recuperación y avisar a clientes y proveedores.</li>
+                <li><strong>Archivos compartidos.</strong> Los documentos con los que trabaja la operación todos los días.</li>
+                <li><strong>Sistemas de línea de negocio.</strong> ERP, facturación, CRM, el sistema de almacén. Son los que devuelven la capacidad de vender y cobrar, y los que más dependencias tienen.</li>
+                <li><strong>Equipos de los usuarios.</strong> Se recuperan al final, en oleadas, priorizando a las áreas que ya tienen sistemas que usar.</li>
+            </ol>
+            <h2>De respaldo a continuidad: qué se agrega</h2>
+            <ul class="mx-list">
+                <li><strong>Una copia que el atacante no pueda tocar.</strong> La regla 3-2-1 (tres copias, dos medios, una fuera del sitio) hoy se escribe 3-2-1-1-0: una copia inmutable o aislada de la red y cero errores en la verificación. Sin eso, un cifrado que llega a la consola de respaldo se lleva también las copias.</li>
+                <li><strong>Un destino de recuperación ya definido.</strong> Para los sistemas críticos, una réplica encendida o una máquina en la nube lista para arrancar. Es lo que convierte un RTO de días en un RTO de horas.</li>
+                <li><strong>Un runbook.</strong> El procedimiento escrito, paso por paso, con direcciones, nombres de servidor, dependencias y teléfonos. Impreso o fuera de los sistemas que puede perder, porque un plan guardado únicamente en el servidor caído no existe.</li>
+                <li><strong>Credenciales de emergencia fuera de banda.</strong> Guardadas de forma que sigan estando disponibles si el directorio o el gestor de contraseñas no están.</li>
+                <li><strong>Simulacros.</strong> Una restauración real, programada, con reloj, cuyo resultado se compara contra el RTO prometido. Es la única manera de que el RTO sea un dato y no un deseo.</li>
+                <li><strong>Prioridades acordadas con la dirección.</strong> Qué se levanta primero no es una decisión técnica: es una decisión de negocio tomada en frío, antes del incidente.</li>
+            </ul>
+            <h2>Cómo saber en qué punto está su empresa</h2>
+            <p>Hay cuatro preguntas que distinguen un esquema de copias de una capacidad de continuidad. Si las cuatro tienen respuesta documentada, hay continuidad; si alguna se responde con suposiciones, lo que hay es respaldo.</p>
+            <p>¿Cuál es el RPO y el RTO comprometido de cada sistema, por escrito? ¿Cuándo fue la última restauración real y cuánto tardó medida con reloj? ¿Dónde se levantaría el sistema si el sitio principal no estuviera disponible? ¿Quién, además de una persona, sabe ejecutar el procedimiento?</p>
+            <p>El salto entre una cosa y otra no suele ser caro: casi siempre es documentar lo que ya existe, separar las credenciales del respaldo del resto de la administración, añadir una copia inmutable y poner una fecha en el calendario para probarlo. Lo caro es descubrir el día del incidente que el plan nunca se escribió.</p>
+            <h2>Dónde entra un proveedor administrado</h2>
+            <p>La continuidad falla casi siempre por abandono, no por diseño: el plan se escribe una vez, la infraestructura cambia y nadie vuelve a tocarlo. Por eso tiene sentido que alguien tenga asignada explícitamente la tarea de revisarlo, monitorear los trabajos de respaldo todos los días y ejecutar las pruebas de restauración en una fecha fija.</p>
+            <p>En igeckoo esa parte va dentro del servicio administrado: respaldo con Acronis Cyber Protect, copia fuera del sitio, monitoreo diario, pruebas de restauración documentadas y un procedimiento de recuperación que se actualiza cuando cambia la infraestructura, no después del incidente.</p>
+        </article>
+        <section class="mx-faq">
+            <h2>Preguntas frecuentes</h2>
+            <h3>¿Tener respaldo en la nube es lo mismo que tener continuidad?</h3>
+            <p>No. La nube resuelve que la copia esté fuera del sitio, que es una parte del problema. La continuidad exige además saber dónde se restaura, en qué orden, con qué accesos, en cuánto tiempo y quién lo ejecuta.</p>
+            <h3>¿Qué es un RTO razonable para una empresa mediana?</h3>
+            <p>Depende del sistema, no de la empresa. Correo e identidad suelen necesitar horas; el ERP, entre medio día y un día; los equipos de usuario pueden recuperarse en oleadas durante varios días. Lo importante es que cada cifra esté acordada con la dirección y probada.</p>
+            <h3>¿Hace falta un plan formal de continuidad si somos pocos?</h3>
+            <p>Hace falta un documento, no una metodología completa. Con la lista de sistemas, su orden de recuperación, dónde está cada copia, quién restaura y cómo se accede a las credenciales de emergencia, ya se cubre la mayor parte del riesgo.</p>
+        </section>
+        <section class="mx-cta">
+            <div class="mx-wrap">
+            <h2>Hablemos de tu empresa</h2>
+            <p>Cuéntanos qué necesitas y te respondemos con una propuesta concreta, sin compromiso.</p>
+            <p class="mx-cta-row">
+                <a class="mx-btn" href="mailto:contacto@igeckoo.com">Hablar con un especialista</a>
+                <a class="mx-btn ghost" href="https://wa.me/5214424222691" target="_blank" rel="noopener">WhatsApp</a>
+                <a class="mx-btn ghost" href="tel:+524424222691">+52-442-422-2691</a>
+            </p>
+            </div>
+        </section>
+        <section class="mx-related">
+            <h2>Continúa por aquí</h2>
+            <ul>
+                <li><a href="../../respaldo-recuperacion/"><strong>Respaldo y Recuperación de Información para Empresas</strong><span>Respaldo automatizado de correo, documentos, servidores y equipos, con copias inmutables en la nube y recuperación probada ante ransomware o fallas.</span></a></li>
+                <li><a href="../../servicios-administrados-ti/"><strong>Servicios Administrados de TI para Empresas</strong><span>Mesa de ayuda, monitoreo, parches, altas y bajas de usuarios y administración de licencias con un responsable único y costo fijo mensual.</span></a></li>
+                <li><a href="../../ciberseguridad/"><strong>Ciberseguridad para Empresas</strong><span>Protege la información, cuentas, dispositivos y sistemas críticos de tu empresa: MFA, defensa anti-ransomware, EDR, gestión de vulnerabilidades y monitoreo.</span></a></li>
+            </ul>
+        </section>
+    </main>
+    <footer class="mx-foot">
+        <div class="mx-foot-in">
+            <div>
+                <p class="mx-foot-h">igeckoo</p>
+                <p>Partner certificado de Microsoft y Acronis. Más de 15 años
+                   protegiendo la información y la operación de empresas en México
+                   y Estados Unidos.</p>
+                <p><a href="../../../index.html">Ir al sitio principal de igeckoo</a></p>
+            </div>
+            <div>
+                <p class="mx-foot-h">Empresas México</p>
+                <ul>
+                    <li><a href="../../">Empresas México</a></li>
+                    <li><a href="../../flex-support-365/">Flex Support 365</a></li>
+                    <li><a href="../../ciberseguridad/">Ciberseguridad</a></li>
+                    <li><a href="../../microsoft-365/">Microsoft 365</a></li>
+                    <li><a href="../../respaldo-recuperacion/">Respaldo</a></li>
+                    <li><a href="../../servicios-administrados-ti/">Servicios TI</a></li>
+                    <li><a href="../../queretaro/">Querétaro</a></li>
+                    <li><a href="../">Recursos</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="mx-foot-h">Contacto</p>
+                <p>México: <a href="tel:+524424222691">+52-442-422-2691</a><br>
+                   Estados Unidos: <a href="tel:+18884057059">+1-888-405-7059</a><br>
+                   <a href="mailto:contacto@igeckoo.com">contacto@igeckoo.com</a></p>
+                <p>Parque Tecnológico, Prol. Tecnológico 801, 2do Piso, Suite 4<br>
+                   C.P. 76159, Querétaro, México.</p>
+            </div>
+        </div>
+        <p class="mx-foot-legal">igeckoo 2026 &middot; Todos los derechos reservados</p>
+    </footer>
+    <a class="wa-btn" href="https://wa.me/5214424222691" target="_blank" rel="noopener" aria-label="WhatsApp +52 1 442 422 2691">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-1.9c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.9S23.2 3 16 3zm0 23.5c-2 0-4-.6-5.7-1.6l-.4-.2-3.8 1.1 1.1-3.6-.3-.4A10.4 10.4 0 0 1 5.5 15.8C5.5 10.1 10.2 5.5 16 5.5s10.5 4.6 10.5 10.3S21.8 26.5 16 26.5zm5.8-7.7c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.6 8.6 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.6 5.8 5 2.1.9 2.9.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+        <span>WhatsApp</span></a>
+</body>
+</html>

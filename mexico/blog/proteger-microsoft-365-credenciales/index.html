@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proteger Microsoft 365 del robo de credenciales | igeckoo</title>
+    <meta name="description" content="El robo de credenciales es la vía de entrada más común a un tenant de Microsoft 365. Qué configurar en Entra ID, en qué orden y qué revisar después.">
+    <link rel="canonical" href="https://igeckoo.com/mexico/blog/proteger-microsoft-365-credenciales/">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="igeckoo">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:title" content="Cómo proteger Microsoft 365 contra el robo de credenciales">
+    <meta property="og:description" content="El robo de credenciales es la vía de entrada más común a un tenant de Microsoft 365. Qué configurar en Entra ID, en qué orden y qué revisar después.">
+    <meta property="og:url" content="https://igeckoo.com/mexico/blog/proteger-microsoft-365-credenciales/">
+    <meta property="og:image" content="https://igeckoo.com/img/logo_header.png">
+    <meta name="twitter:card" content="summary">
+    <meta property="article:published_time" content="2026-10-07">
+    <meta name="author" content="Equipo igeckoo">
+    <link rel="icon" type="image/png" href="../../../favicon.png">
+    <link rel="stylesheet" href="../../../fonts/fonts.css">
+    <link rel="stylesheet" href="../../../css/mx.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://igeckoo.com/"},{"@type":"ListItem","position":2,"name":"Empresas México","item":"https://igeckoo.com/mexico/"},{"@type":"ListItem","position":3,"name":"Recursos","item":"https://igeckoo.com/mexico/blog/"},{"@type":"ListItem","position":4,"name":"Cómo proteger Microsoft 365 contra el robo de credenciales","item":"https://igeckoo.com/mexico/blog/proteger-microsoft-365-credenciales/"}]},{"@type":"BlogPosting","headline":"Cómo proteger Microsoft 365 contra el robo de credenciales","description":"El robo de credenciales es la vía de entrada más común a un tenant de Microsoft 365. Qué configurar en Entra ID, en qué orden y qué revisar después.","url":"https://igeckoo.com/mexico/blog/proteger-microsoft-365-credenciales/","datePublished":"2026-10-07","dateModified":"2026-10-07","inLanguage":"es-MX","author":{"@type":"Organization","name":"Equipo igeckoo"},"publisher":{"@id":"https://igeckoo.com/#organization"},"mainEntityOfPage":"https://igeckoo.com/mexico/blog/proteger-microsoft-365-credenciales/"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿El MFA es suficiente por sí solo?","acceptedAnswer":{"@type":"Answer","text":"Es la medida más rentable, pero no es total: el phishing de tipo adversary-in-the-middle roba la cookie de sesión y pasa por encima del segundo factor. Por eso se combina con acceso condicional, dispositivos administrados y, en cuentas con privilegios, llaves de seguridad."}},{"@type":"Question","name":"¿Qué hago primero si creo que una cuenta está comprometida?","acceptedAnswer":{"@type":"Answer","text":"Revocar las sesiones activas y restablecer los métodos de autenticación, no sólo cambiar la contraseña. Después revisar reglas de reenvío, delegaciones y aplicaciones autorizadas, y recién entonces evaluar qué información quedó expuesta."}},{"@type":"Question","name":"¿Cuántos administradores globales debería tener?","acceptedAnswer":{"@type":"Answer","text":"Los menos posibles, con cuentas dedicadas que no se usen para el trabajo diario y con el segundo factor más fuerte disponible. Para tareas específicas conviene usar roles más limitados en lugar del rol global."}},{"@type":"Question","name":"¿Desactivar la autenticación heredada rompe algo?","acceptedAnswer":{"@type":"Answer","text":"Puede afectar a clientes de correo antiguos, escáneres multifuncionales y aplicaciones que envían correo con SMTP básico. Se inventaría primero qué lo usa, se migra a autenticación moderna y después se bloquea."}}]}]}</script>
+</head>
+<body>
+    <a class="mx-skip" href="#contenido">Ir al contenido</a>
+    <header class="mx-head">
+        <div class="mx-head-in">
+            <a class="mx-logo" href="../../../index.html">
+                <img src="../../../img/logo_header.png" alt="igeckoo" width="150" height="45">
+            </a>
+            <nav class="mx-nav" aria-label="Empresas México">
+            <a href="../../">Empresas México</a>
+            <a href="../../flex-support-365/">Flex Support 365</a>
+            <a href="../../ciberseguridad/">Ciberseguridad</a>
+            <a href="../../microsoft-365/">Microsoft 365</a>
+            <a href="../../respaldo-recuperacion/">Respaldo</a>
+            <a href="../../servicios-administrados-ti/">Servicios TI</a>
+            <a href="../../queretaro/">Querétaro</a>
+            <a href="../" class="on" aria-current="page">Recursos</a>
+            </nav>
+            <a class="mx-head-cta" href="mailto:contacto@igeckoo.com">Contacto</a>
+        </div>
+    </header>
+    <main id="contenido">
+        <nav class="mx-crumbs" aria-label="Ruta de navegación">
+            <ol><li><a href="../../../index.html">Inicio</a></li><li><a href="../../">Empresas México</a></li><li><a href="../">Recursos</a></li><li>Cómo proteger Microsoft 365 contra el robo de credenciales</li></ol>
+        </nav>
+        <section class="mx-hero">
+            <h1>Cómo proteger Microsoft 365 contra el robo de credenciales</h1>
+            <p class="mx-byline">Equipo igeckoo &middot; <time datetime="2026-10-07">2026-10-07</time></p>
+            <p class="mx-lead">El ataque más común contra Microsoft 365 no rompe nada: inicia sesión. Alguien obtiene un usuario y una contraseña válidos, entra por la puerta principal y se mueve con los permisos de ese empleado. Para la plataforma es una sesión legítima, y por eso el antivirus del equipo no participa en la historia.</p>
+            <p class="mx-lead">La defensa, entonces, no está en el correo ni en la computadora: está en la identidad, es decir en Entra ID (antes Azure AD). Lo que sigue es el orden en que conviene hacerlo, de lo que más reduce el riesgo a lo que lo detecta cuando ya ocurrió.</p>
+            <p class="mx-hero-row">
+                <a class="mx-btn" href="mailto:contacto@igeckoo.com">Hablar con un especialista</a>
+                <a class="mx-btn ghost" href="https://wa.me/5214424222691" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+            </p>
+        </section>
+        <article class="mx-body">
+            <h2>Cómo se roban las credenciales en la práctica</h2>
+            <ul class="mx-list">
+                <li><strong>Phishing dirigido.</strong> Un mensaje que imita una notificación de Microsoft, de un proveedor o de un directivo lleva a una página de inicio de sesión idéntica a la real. La contraseña se escribe en el sitio del atacante.</li>
+                <li><strong>Phishing que vence el segundo factor.</strong> Las páginas intermediarias modernas, de tipo adversary-in-the-middle, capturan la contraseña, el código del MFA y la cookie de sesión. Con esa cookie el atacante entra sin volver a autenticarse. Es la razón por la que el MFA por SMS ya no se considera suficiente.</li>
+                <li><strong>Autenticación heredada.</strong> Protocolos antiguos como POP, IMAP y SMTP básico no saben pedir un segundo factor: aceptan usuario y contraseña, y nada más. Mientras estén habilitados, el MFA se puede esquivar.</li>
+                <li><strong>Contraseñas reutilizadas.</strong> La misma contraseña del correo de trabajo aparece en la filtración de otro servicio y se prueba de forma automatizada contra el tenant.</li>
+                <li><strong>Consentimiento a aplicaciones.</strong> El usuario autoriza una aplicación de terceros que pide leer su correo. No hay robo de contraseña y el acceso persiste igual.</li>
+            </ul>
+            <h2>Paso uno: MFA para todos, empezando por los administradores</h2>
+            <p>La autenticación multifactor sigue siendo la medida con mejor relación entre esfuerzo y riesgo evitado. Dos precisiones que cambian el resultado: debe aplicarse a todos los usuarios, no sólo a dirección y a TI, porque cualquier buzón sirve para enviar fraude interno; y debe aplicarse también a las cuentas de servicio y a las de administrador, que suelen quedar exentas "temporalmente".</p>
+            <p>El método importa. La aplicación Microsoft Authenticator con aprobación numérica resiste mucho mejor que un código por SMS, que es interceptable y vulnerable al cambio fraudulento de línea. Para las cuentas de administrador, lo correcto es una llave de seguridad física o passkey, que es resistente al phishing porque está ligada al dominio real.</p>
+            <h2>Paso dos: acceso condicional, para que el MFA no sea un trámite</h2>
+            <p>El acceso condicional evalúa cada intento de inicio de sesión y decide: permitir, exigir un factor adicional o bloquear. Es lo que convierte al MFA de una casilla activada en una política real.</p>
+            <ul class="mx-list">
+                <li>Bloquear la autenticación heredada por completo. Es la regla que más cierra de golpe.</li>
+                <li>Exigir MFA para cualquier acceso desde fuera de las redes conocidas de la empresa.</li>
+                <li>Exigir un dispositivo administrado o cumpliendo políticas para acceder a los datos, no sólo una contraseña correcta.</li>
+                <li>Restringir el inicio de sesión desde países donde la empresa no opera.</li>
+                <li>Reducir la duración de la sesión para las cuentas con privilegios, de modo que una cookie robada caduque pronto.</li>
+                <li>Dejar siempre una cuenta de acceso de emergencia excluida de las políticas, con contraseña larga guardada fuera del sistema, para no quedar bloqueado por la propia regla.</li>
+            </ul>
+            <h2>Paso tres: cerrar lo que está abierto de fábrica</h2>
+            <p>Un tenant recién creado no es un tenant seguro. Hay cuatro puntos de higiene que se revisan rápido y que suelen estar mal: el número de administradores globales, que debería ser mínimo y con cuentas dedicadas sin buzón de uso diario; la auditoría de buzones, que conviene verificar que esté activa porque sin ella no hay forma de reconstruir qué leyó o borró un intruso; la creación de reglas de reenvío automático hacia dominios externos, que es la primera cosa que hace un atacante y que se puede bloquear; y la autorización de aplicaciones de terceros por parte del usuario, que debería pasar por aprobación del administrador.</p>
+            <p>A eso se suma revisar la compartición externa de SharePoint y OneDrive: los enlaces de "cualquier persona con el enlace" son útiles y también son la fuga más silenciosa que existe.</p>
+            <h2>Paso cuatro: detectar y contener</h2>
+            <p>Asumir que tarde o temprano una cuenta caerá cambia las preguntas. Hay que poder notar el inicio de sesión imposible, el reenvío recién creado, el acceso desde un país nuevo, la descarga masiva de archivos. Entra ID y el portal de seguridad generan esas alertas; el problema casi nunca es que no existan, sino que nadie las mira.</p>
+            <p>Y hay que tener escrito el procedimiento de contención, porque se ejecuta bajo presión: revocar las sesiones activas de la cuenta —no sólo cambiar la contraseña, que no cierra la sesión robada—, restablecer los métodos de MFA, revisar y eliminar reglas de reenvío y delegaciones, revisar las aplicaciones autorizadas, y recién entonces reconstruir qué se vio y qué se borró, con el registro de auditoría y con el respaldo.</p>
+            <h2>Dónde entramos nosotros</h2>
+            <p>igeckoo implementa y opera esta configuración como parte de sus servicios administrados de ciberseguridad: MFA y acceso condicional en Entra ID, protección de equipos con Defender for Business, respaldo con Acronis y revisión periódica del tenant, con costo fijo mensual y soporte en español. La forma habitual de empezar es una evaluación del estado actual, que normalmente devuelve una lista corta y accionable.</p>
+        </article>
+        <section class="mx-faq">
+            <h2>Preguntas frecuentes</h2>
+            <h3>¿El MFA es suficiente por sí solo?</h3>
+            <p>Es la medida más rentable, pero no es total: el phishing de tipo adversary-in-the-middle roba la cookie de sesión y pasa por encima del segundo factor. Por eso se combina con acceso condicional, dispositivos administrados y, en cuentas con privilegios, llaves de seguridad.</p>
+            <h3>¿Qué hago primero si creo que una cuenta está comprometida?</h3>
+            <p>Revocar las sesiones activas y restablecer los métodos de autenticación, no sólo cambiar la contraseña. Después revisar reglas de reenvío, delegaciones y aplicaciones autorizadas, y recién entonces evaluar qué información quedó expuesta.</p>
+            <h3>¿Cuántos administradores globales debería tener?</h3>
+            <p>Los menos posibles, con cuentas dedicadas que no se usen para el trabajo diario y con el segundo factor más fuerte disponible. Para tareas específicas conviene usar roles más limitados en lugar del rol global.</p>
+            <h3>¿Desactivar la autenticación heredada rompe algo?</h3>
+            <p>Puede afectar a clientes de correo antiguos, escáneres multifuncionales y aplicaciones que envían correo con SMTP básico. Se inventaría primero qué lo usa, se migra a autenticación moderna y después se bloquea.</p>
+        </section>
+        <section class="mx-cta">
+            <div class="mx-wrap">
+            <h2>Hablemos de tu empresa</h2>
+            <p>Cuéntanos qué necesitas y te respondemos con una propuesta concreta, sin compromiso.</p>
+            <p class="mx-cta-row">
+                <a class="mx-btn" href="mailto:contacto@igeckoo.com">Hablar con un especialista</a>
+                <a class="mx-btn ghost" href="https://wa.me/5214424222691" target="_blank" rel="noopener">WhatsApp</a>
+                <a class="mx-btn ghost" href="tel:+524424222691">+52-442-422-2691</a>
+            </p>
+            </div>
+        </section>
+        <section class="mx-related">
+            <h2>Continúa por aquí</h2>
+            <ul>
+                <li><a href="../../ciberseguridad/"><strong>Ciberseguridad para Empresas</strong><span>Protege la información, cuentas, dispositivos y sistemas críticos de tu empresa: MFA, defensa anti-ransomware, EDR, gestión de vulnerabilidades y monitoreo.</span></a></li>
+                <li><a href="../../microsoft-365/"><strong>Microsoft 365 para Empresas</strong><span>Implementación, administración y soporte de Microsoft 365 para empresas: correo con tu dominio, Teams, OneDrive y SharePoint, configurados con seguridad.</span></a></li>
+                <li><a href="../../servicios-administrados-ti/"><strong>Servicios Administrados de TI para Empresas</strong><span>Mesa de ayuda, monitoreo, parches, altas y bajas de usuarios y administración de licencias con un responsable único y costo fijo mensual.</span></a></li>
+                <li><a href="../../respaldo-recuperacion/"><strong>Respaldo y Recuperación de Información para Empresas</strong><span>Respaldo automatizado de correo, documentos, servidores y equipos, con copias inmutables en la nube y recuperación probada ante ransomware o fallas.</span></a></li>
+            </ul>
+        </section>
+    </main>
+    <footer class="mx-foot">
+        <div class="mx-foot-in">
+            <div>
+                <p class="mx-foot-h">igeckoo</p>
+                <p>Partner certificado de Microsoft y Acronis. Más de 15 años
+                   protegiendo la información y la operación de empresas en México
+                   y Estados Unidos.</p>
+                <p><a href="../../../index.html">Ir al sitio principal de igeckoo</a></p>
+            </div>
+            <div>
+                <p class="mx-foot-h">Empresas México</p>
+                <ul>
+                    <li><a href="../../">Empresas México</a></li>
+                    <li><a href="../../flex-support-365/">Flex Support 365</a></li>
+                    <li><a href="../../ciberseguridad/">Ciberseguridad</a></li>
+                    <li><a href="../../microsoft-365/">Microsoft 365</a></li>
+                    <li><a href="../../respaldo-recuperacion/">Respaldo</a></li>
+                    <li><a href="../../servicios-administrados-ti/">Servicios TI</a></li>
+                    <li><a href="../../queretaro/">Querétaro</a></li>
+                    <li><a href="../">Recursos</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="mx-foot-h">Contacto</p>
+                <p>México: <a href="tel:+524424222691">+52-442-422-2691</a><br>
+                   Estados Unidos: <a href="tel:+18884057059">+1-888-405-7059</a><br>
+                   <a href="mailto:contacto@igeckoo.com">contacto@igeckoo.com</a></p>
+                <p>Parque Tecnológico, Prol. Tecnológico 801, 2do Piso, Suite 4<br>
+                   C.P. 76159, Querétaro, México.</p>
+            </div>
+        </div>
+        <p class="mx-foot-legal">igeckoo 2026 &middot; Todos los derechos reservados</p>
+    </footer>
+    <a class="wa-btn" href="https://wa.me/5214424222691" target="_blank" rel="noopener" aria-label="WhatsApp +52 1 442 422 2691">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-1.9c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.9S23.2 3 16 3zm0 23.5c-2 0-4-.6-5.7-1.6l-.4-.2-3.8 1.1 1.1-3.6-.3-.4A10.4 10.4 0 0 1 5.5 15.8C5.5 10.1 10.2 5.5 16 5.5s10.5 4.6 10.5 10.3S21.8 26.5 16 26.5zm5.8-7.7c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.6 8.6 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.6 5.8 5 2.1.9 2.9.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+        <span>WhatsApp</span></a>
+</body>
+</html>

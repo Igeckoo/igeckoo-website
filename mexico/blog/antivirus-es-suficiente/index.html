@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>¿Un antivirus es suficiente para una empresa? | igeckoo</title>
+    <meta name="description" content="Qué detecta un antivirus, qué se le escapa y cuáles son las capas que sí hacen falta en una empresa: EDR, identidad, parcheo y respaldo inmutable.">
+    <link rel="canonical" href="https://igeckoo.com/mexico/blog/antivirus-es-suficiente/">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="igeckoo">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:title" content="¿Un antivirus es suficiente para proteger una empresa?">
+    <meta property="og:description" content="Qué detecta un antivirus, qué se le escapa y cuáles son las capas que sí hacen falta en una empresa: EDR, identidad, parcheo y respaldo inmutable.">
+    <meta property="og:url" content="https://igeckoo.com/mexico/blog/antivirus-es-suficiente/">
+    <meta property="og:image" content="https://igeckoo.com/img/logo_header.png">
+    <meta name="twitter:card" content="summary">
+    <meta property="article:published_time" content="2026-10-07">
+    <meta name="author" content="Equipo igeckoo">
+    <link rel="icon" type="image/png" href="../../../favicon.png">
+    <link rel="stylesheet" href="../../../fonts/fonts.css">
+    <link rel="stylesheet" href="../../../css/mx.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://igeckoo.com/"},{"@type":"ListItem","position":2,"name":"Empresas México","item":"https://igeckoo.com/mexico/"},{"@type":"ListItem","position":3,"name":"Recursos","item":"https://igeckoo.com/mexico/blog/"},{"@type":"ListItem","position":4,"name":"¿Un antivirus es suficiente para proteger una empresa?","item":"https://igeckoo.com/mexico/blog/antivirus-es-suficiente/"}]},{"@type":"BlogPosting","headline":"¿Un antivirus es suficiente para proteger una empresa?","description":"Qué detecta un antivirus, qué se le escapa y cuáles son las capas que sí hacen falta en una empresa: EDR, identidad, parcheo y respaldo inmutable.","url":"https://igeckoo.com/mexico/blog/antivirus-es-suficiente/","datePublished":"2026-10-07","dateModified":"2026-10-07","inLanguage":"es-MX","author":{"@type":"Organization","name":"Equipo igeckoo"},"publisher":{"@id":"https://igeckoo.com/#organization"},"mainEntityOfPage":"https://igeckoo.com/mexico/blog/antivirus-es-suficiente/"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Entonces hay que quitar el antivirus?","acceptedAnswer":{"@type":"Answer","text":"No: el EDR normalmente lo incluye y lo reemplaza como función. Lo que no conviene es tener dos agentes de protección en tiempo real del mismo tipo, porque se interfieren y degradan el equipo. Un solo agente de EDR con antivirus integrado es la configuración correcta."}},{"@type":"Question","name":"¿El antivirus que viene con el sistema operativo es suficiente?","acceptedAnswer":{"@type":"Answer","text":"Como motor de detección es competitivo. La diferencia no está en el motor, está en la administración central, la telemetría conservada, la capacidad de aislar equipos y el reporteo. Eso llega con la versión empresarial y su consola, no con la configuración por defecto de cada máquina."}},{"@type":"Question","name":"¿Qué pasa si sólo podemos añadir una cosa este año?","acceptedAnswer":{"@type":"Answer","text":"MFA en todas las cuentas, con bloqueo de la autenticación heredada. Es lo que cierra la vía de entrada más usada, se despliega en días y en muchos casos no requiere licencias nuevas. El segundo lugar lo ocupa una copia de respaldo inmutable."}},{"@type":"Question","name":"¿Hace falta un SOC para esto?","acceptedAnswer":{"@type":"Answer","text":"Hace falta la función, no necesariamente la estructura. Lo imprescindible es que alguien reciba la alerta, pueda aislar un equipo y sepa a quién escalar, las 24 horas. En una empresa mediana eso se resuelve casi siempre con un servicio administrado, no con personal propio en turnos."}}]}]}</script>
+</head>
+<body>
+    <a class="mx-skip" href="#contenido">Ir al contenido</a>
+    <header class="mx-head">
+        <div class="mx-head-in">
+            <a class="mx-logo" href="../../../index.html">
+                <img src="../../../img/logo_header.png" alt="igeckoo" width="150" height="45">
+            </a>
+            <nav class="mx-nav" aria-label="Empresas México">
+            <a href="../../">Empresas México</a>
+            <a href="../../flex-support-365/">Flex Support 365</a>
+            <a href="../../ciberseguridad/">Ciberseguridad</a>
+            <a href="../../microsoft-365/">Microsoft 365</a>
+            <a href="../../respaldo-recuperacion/">Respaldo</a>
+            <a href="../../servicios-administrados-ti/">Servicios TI</a>
+            <a href="../../queretaro/">Querétaro</a>
+            <a href="../" class="on" aria-current="page">Recursos</a>
+            </nav>
+            <a class="mx-head-cta" href="mailto:contacto@igeckoo.com">Contacto</a>
+        </div>
+    </header>
+    <main id="contenido">
+        <nav class="mx-crumbs" aria-label="Ruta de navegación">
+            <ol><li><a href="../../../index.html">Inicio</a></li><li><a href="../../">Empresas México</a></li><li><a href="../">Recursos</a></li><li>¿Un antivirus es suficiente para proteger una empresa?</li></ol>
+        </nav>
+        <section class="mx-hero">
+            <h1>¿Un antivirus es suficiente para proteger una empresa?</h1>
+            <p class="mx-byline">Equipo igeckoo &middot; <time datetime="2026-10-07">2026-10-07</time></p>
+            <p class="mx-lead">No. Un antivirus sigue siendo necesario, pero hoy cubre sólo una parte del problema: reconoce archivos y comportamientos maliciosos en un equipo. Buena parte de los ataques actuales no usa un archivo malicioso en absoluto —entra con una credencial válida robada por phishing, o aprovecha una vulnerabilidad sin parchar en un servicio publicado en internet— y en esos casos no hay nada que un antivirus deba bloquear, porque desde su punto de vista todo es legítimo.</p>
+            <p class="mx-lead">La respuesta práctica no es cambiar de antivirus, es añadir las capas que el antivirus no puede cubrir: <strong>identidad</strong> (MFA y acceso condicional), <strong>detección y respuesta en el equipo</strong> (EDR o XDR, con alguien que atienda las alertas), <strong>parcheo</strong> y <strong>respaldo inmutable que se prueba</strong>.</p>
+            <p class="mx-hero-row">
+                <a class="mx-btn" href="mailto:contacto@igeckoo.com">Hablar con un especialista</a>
+                <a class="mx-btn ghost" href="https://wa.me/5214424222691" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+            </p>
+        </section>
+        <article class="mx-body">
+            <h2>Qué hace bien un antivirus y dónde se queda corto</h2>
+            <p>Un antivirus moderno hace tres cosas con bastante eficacia: reconocer malware conocido por su firma, detectar variantes por heurística o por modelo, y bloquear comportamientos obviamente maliciosos en el momento en que ocurren. Contra el malware de volumen que llega por correo o por descarga, funciona.</p>
+            <p>Sus límites no son un defecto del producto, son su alcance de diseño:</p>
+            <ul class="mx-list">
+                <li><strong>Ataques sin malware.</strong> Si el atacante entra con usuario y contraseña correctos a un portal de correo, en el equipo no pasa nada que el antivirus pueda ver.</li>
+                <li><strong>Uso malicioso de herramientas legítimas.</strong> PowerShell, las utilidades de administración del sistema y las herramientas de soporte remoto no son malware. Bloquearlas rompería la operación; el valor está en detectar la <strong>secuencia</strong> en la que se usan.</li>
+                <li><strong>Ejecución en memoria.</strong> Código que nunca se escribe en disco deja poco a lo que un escaneo de archivos pueda aferrarse.</li>
+                <li><strong>Robo de sesión.</strong> Las páginas falsas de inicio de sesión que capturan la cookie ya autenticada operan en el navegador y contra el sitio, no contra el sistema de archivos.</li>
+                <li><strong>Falta de contexto entre dispositivos.</strong> Un antivirus ve un equipo. No sabe que la misma cuenta inició sesión desde otro país quince minutos antes ni que un servidor empezó a recibir conexiones raras.</li>
+            </ul>
+            <h2>EDR y XDR: la diferencia que importa en la práctica</h2>
+            <p>Un EDR (detección y respuesta en el endpoint) hace lo del antivirus y añade tres cosas que cambian el resultado de un incidente. <strong>Registra</strong> la actividad del equipo —procesos, conexiones, cambios en el registro, accesos a archivos— y la conserva, lo que permite reconstruir después qué pasó. <strong>Correlaciona</strong> esa actividad en una cadena, de modo que una secuencia de acciones individualmente inocentes se detecta como un ataque. Y permite <strong>responder</strong> en remoto: aislar el equipo de la red, detener un proceso, poner un archivo en cuarentena en toda la flota.</p>
+            <p>Un XDR amplía lo mismo a más señales —identidad, correo, nube, red— y es ahí donde se ve el ataque completo, porque empieza en el correo, sigue en la identidad y termina en el equipo. Ninguna de las dos herramientas sirve sola: lo que convierte un EDR en protección es que alguien atienda la alerta cuando ocurre, incluido el fin de semana, que es cuando se lanza el cifrado. Si no hay equipo interno con esa guardia, se contrata como servicio administrado; comprar la consola y dejarla sin vigilancia es el gasto peor aprovechado de la seguridad empresarial.</p>
+            <h2>Las capas que ningún antivirus va a cubrir</h2>
+            <p>Esta lista es el verdadero contenido de la respuesta. Ninguno de estos controles se compra en la misma caja que el antivirus, y todos pesan más que él en el resultado de un incidente real.</p>
+            <ul class="mx-list">
+                <li><strong>Identidad:</strong> MFA en todas las cuentas, factor resistente al phishing para administradores y dirección, bloqueo de la autenticación heredada y acceso condicional por dispositivo y por riesgo.</li>
+                <li><strong>Menor privilegio:</strong> nadie trabaja a diario con permisos de administrador, cuentas administrativas separadas y sin correo, y contraseñas de administrador local distintas en cada equipo.</li>
+                <li><strong>Correo:</strong> filtrado avanzado, análisis de enlaces y adjuntos en el momento del clic, y autenticación de dominio (SPF, DKIM y DMARC) para que no suplanten a tu empresa.</li>
+                <li><strong>Parcheo y superficie de ataque:</strong> inventario, ciclo con plazos por criticidad, prioridad a lo publicado en internet y retiro del escritorio remoto expuesto.</li>
+                <li><strong>Respaldo:</strong> regla 3-2-1, al menos una copia inmutable o aislada, credenciales separadas del dominio y restauraciones de prueba documentadas.</li>
+                <li><strong>Segmentación:</strong> que un equipo de usuario no pueda hablar directamente con todos los servidores, y que la red de administración y la de respaldo estén aparte.</li>
+                <li><strong>Las personas:</strong> capacitación con ejercicios periódicos y un canal de reporte sin consecuencias, porque el aviso temprano vale más que cualquier filtro.</li>
+                <li><strong>Respuesta a incidentes:</strong> un plan escrito, impreso, con roles y teléfonos, guardado fuera de los sistemas que un ataque va a cifrar.</li>
+            </ul>
+            <h2>Cómo se ve esto con herramientas reales</h2>
+            <p>No hace falta un catálogo de diez fabricantes. En una empresa mediana, dos plataformas cubren casi todo el terreno y suelen estar parcialmente pagadas ya.</p>
+            <p><strong>Microsoft 365 Business Premium</strong> incluye Defender para Empresas, que aporta capacidades de EDR, reducción de superficie de ataque e investigación y remediación automatizadas; Entra ID Plan 1, que es lo que habilita el acceso condicional; Intune, para exigir que los equipos estén administrados y en cumplimiento; y Defender para Office 365, para el correo. Es decir: si tu empresa tiene ese plan, el salto de antivirus a EDR con identidad controlada es sobre todo trabajo de configuración.</p>
+            <p><strong>Acronis Cyber Protect</strong> cubre el otro lado desde un solo agente: respaldo y recuperación con opción de almacenamiento inmutable, protección anti-ransomware en el endpoint, evaluación de vulnerabilidades y administración de parches, y recuperación ante desastres. El valor de integrarlo no es la lista de funciones, es que la detección y el respaldo se hablen: cuando una restauración se analiza antes de devolverla a producción, no se reintroduce lo que causó el problema.</p>
+            <h2>Cómo evaluar lo que ya tienes</h2>
+            <p>Seis preguntas que se responden en una reunión y que dicen bastante más que cualquier comparativa de productos:</p>
+            <ol class="mx-steps">
+                <li>¿Qué porcentaje de equipos <strong>y servidores</strong> tiene el agente instalado, activo y reportando? ¿Quién lo verifica y cada cuánto?</li>
+                <li>¿Podemos aislar un equipo de la red en remoto, sin ir físicamente a desconectarlo?</li>
+                <li>¿Cuánta telemetría se conserva y por cuánto tiempo? Si un incidente empezó hace tres semanas, ¿quedan registros para reconstruirlo?</li>
+                <li>¿Quién atiende una alerta crítica a las tres de la mañana de un domingo, y en cuánto tiempo?</li>
+                <li>¿El agente se puede desinstalar con permisos de administrador local? (Si sí, falta activar la protección contra manipulación.)</li>
+                <li>¿Cuándo fue la última restauración de prueba, cuánto tardó y quién firmó el resultado?</li>
+            </ol>
+            <h2>Un criterio simple para decidir</h2>
+            <p>El antivirus deja de ser suficiente en el momento en que la empresa tiene algo que perder por una interrupción: nómina, facturación, un ERP, expedientes de clientes. A partir de ahí la pregunta útil no es qué tan bueno es el producto que detecta, sino qué pasa en las dos horas siguientes a la detección. Si la respuesta es que el equipo se limpia y la vida sigue, hay un control, no una estrategia.</p>
+            <p>La secuencia que mejor rinde es siempre la misma: identidad primero porque es la vía de entrada más usada, respaldo inmutable después porque determina la duración del daño, y EDR vigilado en tercer lugar porque acorta la ventana en la que el atacante trabaja sin que nadie lo vea. Las tres juntas sí responden la pregunta del título.</p>
+        </article>
+        <section class="mx-faq">
+            <h2>Preguntas frecuentes</h2>
+            <h3>¿Entonces hay que quitar el antivirus?</h3>
+            <p>No: el EDR normalmente lo incluye y lo reemplaza como función. Lo que no conviene es tener dos agentes de protección en tiempo real del mismo tipo, porque se interfieren y degradan el equipo. Un solo agente de EDR con antivirus integrado es la configuración correcta.</p>
+            <h3>¿El antivirus que viene con el sistema operativo es suficiente?</h3>
+            <p>Como motor de detección es competitivo. La diferencia no está en el motor, está en la administración central, la telemetría conservada, la capacidad de aislar equipos y el reporteo. Eso llega con la versión empresarial y su consola, no con la configuración por defecto de cada máquina.</p>
+            <h3>¿Qué pasa si sólo podemos añadir una cosa este año?</h3>
+            <p>MFA en todas las cuentas, con bloqueo de la autenticación heredada. Es lo que cierra la vía de entrada más usada, se despliega en días y en muchos casos no requiere licencias nuevas. El segundo lugar lo ocupa una copia de respaldo inmutable.</p>
+            <h3>¿Hace falta un SOC para esto?</h3>
+            <p>Hace falta la función, no necesariamente la estructura. Lo imprescindible es que alguien reciba la alerta, pueda aislar un equipo y sepa a quién escalar, las 24 horas. En una empresa mediana eso se resuelve casi siempre con un servicio administrado, no con personal propio en turnos.</p>
+        </section>
+        <section class="mx-cta">
+            <div class="mx-wrap">
+            <h2>Revisar lo que ya está pagado antes de comprar más</h2>
+            <p>En la mayoría de los casos, el primer paso no es una compra: es configurar lo que las licencias actuales ya incluyen y poner a alguien a vigilarlo. igeckoo es partner certificado de Microsoft y Acronis y tiene más de 15 años administrando infraestructura, seguridad y respaldo de empresas en México, con costo fijo mensual.</p>
+            <p class="mx-cta-row">
+                <a class="mx-btn" href="mailto:contacto@igeckoo.com">Hablar con un especialista</a>
+                <a class="mx-btn ghost" href="https://wa.me/5214424222691" target="_blank" rel="noopener">WhatsApp</a>
+                <a class="mx-btn ghost" href="tel:+524424222691">+52-442-422-2691</a>
+            </p>
+            </div>
+        </section>
+        <section class="mx-related">
+            <h2>Continúa por aquí</h2>
+            <ul>
+                <li><a href="../../ciberseguridad/"><strong>Ciberseguridad para Empresas</strong><span>Protege la información, cuentas, dispositivos y sistemas críticos de tu empresa: MFA, defensa anti-ransomware, EDR, gestión de vulnerabilidades y monitoreo.</span></a></li>
+                <li><a href="../../respaldo-recuperacion/"><strong>Respaldo y Recuperación de Información para Empresas</strong><span>Respaldo automatizado de correo, documentos, servidores y equipos, con copias inmutables en la nube y recuperación probada ante ransomware o fallas.</span></a></li>
+                <li><a href="../../flex-support-365/"><strong>Flex Support 365: productividad, protección y soporte en un solo servicio</strong><span>Flex Support 365 integra productividad, ciberseguridad, respaldo y soporte en un solo servicio con costo fijo mensual, sin equipo de TI especializado.</span></a></li>
+            </ul>
+        </section>
+    </main>
+    <footer class="mx-foot">
+        <div class="mx-foot-in">
+            <div>
+                <p class="mx-foot-h">igeckoo</p>
+                <p>Partner certificado de Microsoft y Acronis. Más de 15 años
+                   protegiendo la información y la operación de empresas en México
+                   y Estados Unidos.</p>
+                <p><a href="../../../index.html">Ir al sitio principal de igeckoo</a></p>
+            </div>
+            <div>
+                <p class="mx-foot-h">Empresas México</p>
+                <ul>
+                    <li><a href="../../">Empresas México</a></li>
+                    <li><a href="../../flex-support-365/">Flex Support 365</a></li>
+                    <li><a href="../../ciberseguridad/">Ciberseguridad</a></li>
+                    <li><a href="../../microsoft-365/">Microsoft 365</a></li>
+                    <li><a href="../../respaldo-recuperacion/">Respaldo</a></li>
+                    <li><a href="../../servicios-administrados-ti/">Servicios TI</a></li>
+                    <li><a href="../../queretaro/">Querétaro</a></li>
+                    <li><a href="../">Recursos</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="mx-foot-h">Contacto</p>
+                <p>México: <a href="tel:+524424222691">+52-442-422-2691</a><br>
+                   Estados Unidos: <a href="tel:+18884057059">+1-888-405-7059</a><br>
+                   <a href="mailto:contacto@igeckoo.com">contacto@igeckoo.com</a></p>
+                <p>Parque Tecnológico, Prol. Tecnológico 801, 2do Piso, Suite 4<br>
+                   C.P. 76159, Querétaro, México.</p>
+            </div>
+        </div>
+        <p class="mx-foot-legal">igeckoo 2026 &middot; Todos los derechos reservados</p>
+    </footer>
+    <a class="wa-btn" href="https://wa.me/5214424222691" target="_blank" rel="noopener" aria-label="WhatsApp +52 1 442 422 2691">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-1.9c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.9S23.2 3 16 3zm0 23.5c-2 0-4-.6-5.7-1.6l-.4-.2-3.8 1.1 1.1-3.6-.3-.4A10.4 10.4 0 0 1 5.5 15.8C5.5 10.1 10.2 5.5 16 5.5s10.5 4.6 10.5 10.3S21.8 26.5 16 26.5zm5.8-7.7c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.6 8.6 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.6 5.8 5 2.1.9 2.9.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+        <span>WhatsApp</span></a>
+</body>
+</html>
