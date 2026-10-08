@@ -83,12 +83,12 @@
             <ul class="mx-list">
                 <li><strong>Una copia que el atacante no pueda tocar.</strong> La regla 3-2-1 (tres copias, dos medios, una fuera del sitio) hoy se escribe 3-2-1-1-0: una copia inmutable o aislada de la red y cero errores en la verificación. Sin eso, un cifrado que llega a la consola de respaldo se lleva también las copias.</li>
                 <li><strong>Un destino de recuperación ya definido.</strong> Para los sistemas críticos, una réplica encendida o una máquina en la nube lista para arrancar. Es lo que convierte un RTO de días en un RTO de horas.</li>
-                <li><strong>Un runbook.</strong> El procedimiento escrito, paso por paso, con direcciones, nombres de servidor, dependencias y teléfonos. Impreso o fuera de los sistemas que puede perder, porque un plan guardado únicamente en el servidor caído no existe.</li>
+                <li><strong>Un runbook.</strong> El procedimiento escrito, paso por paso, con direcciones, nombres de servidor, dependencias y teléfonos. Impreso o fuera de los sistemas que puedes perder, porque un plan guardado únicamente en el servidor caído no existe.</li>
                 <li><strong>Credenciales de emergencia fuera de banda.</strong> Guardadas de forma que sigan estando disponibles si el directorio o el gestor de contraseñas no están.</li>
                 <li><strong>Simulacros.</strong> Una restauración real, programada, con reloj, cuyo resultado se compara contra el RTO prometido. Es la única manera de que el RTO sea un dato y no un deseo.</li>
                 <li><strong>Prioridades acordadas con la dirección.</strong> Qué se levanta primero no es una decisión técnica: es una decisión de negocio tomada en frío, antes del incidente.</li>
             </ul>
-            <h2>Cómo saber en qué punto está su empresa</h2>
+            <h2>Cómo saber en qué punto está tu empresa</h2>
             <p>Hay cuatro preguntas que distinguen un esquema de copias de una capacidad de continuidad. Si las cuatro tienen respuesta documentada, hay continuidad; si alguna se responde con suposiciones, lo que hay es respaldo.</p>
             <p>¿Cuál es el RPO y el RTO comprometido de cada sistema, por escrito? ¿Cuándo fue la última restauración real y cuánto tardó medida con reloj? ¿Dónde se levantaría el sistema si el sitio principal no estuviera disponible? ¿Quién, además de una persona, sabe ejecutar el procedimiento?</p>
             <p>El salto entre una cosa y otra no suele ser caro: casi siempre es documentar lo que ya existe, separar las credenciales del respaldo del resto de la administración, añadir una copia inmutable y poner una fecha en el calendario para probarlo. Lo caro es descubrir el día del incidente que el plan nunca se escribió.</p>
