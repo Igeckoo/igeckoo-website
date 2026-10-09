@@ -306,3 +306,25 @@ a:hover { color: var(--navy); }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
 }
+
+/* A service card that is also a link (Felipe, 2026-10-09: each option on
+   /mexico/ should take the reader to its solution). Same box as .mx-card, with
+   the affordances a link needs: no underline on the heading, a hover state that
+   matches .mx-related, and a chevron so it reads as a destination. */
+.mx-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color .15s ease, background-color .15s ease;
+}
+.mx-card-link:hover,
+.mx-card-link:focus-visible {
+    border-color: var(--blue);
+    background: #fff;
+    color: inherit;
+}
+.mx-card-link h3::after {
+    content: " ›";
+    color: var(--blue);
+    font-weight: 700;
+}
